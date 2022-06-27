@@ -1,6 +1,7 @@
-# Space Invaders
+# Game Base
 
-Blurb for the function of the website.
+This website allows gamers to keep a record of games that they want to play in the future. 
+As a gamer, you often talk to your friends about the games that they're playing and in passing you may hear of cool games that you want to play in the future. Have you ever been in a situation where you are ready to start a new game but you can't quite remember the name of that one particular game that a friend of a friend recomended 2 months ago? Well, Game Base would be perfect for you! It's a quick and simple way of creating a 'to-play' list! Never feel uncertain of what game to play next with Game Base.
 
 To visit the website, please visit the deployed site [here](link to deployed site).
 
@@ -11,7 +12,14 @@ To visit the website, please visit the deployed site [here](link to deployed sit
 ## User Stories
 
 As a user of the Game Base website, I want to:
-  1. 
+  1. keep a record of games I want to play in the future
+  2. be able to add games to my Game Base
+  3. browse through the games I've added to my Game Base
+  4. be able to edit the games on my Game Base
+  5. be able to remove games from my Game Base
+  6. sort the games I've added to my Game Base by category
+  7. view basic information of the games on my Game Base 
+  8. log into my Game Base with my email address and password
 
 ***
 
