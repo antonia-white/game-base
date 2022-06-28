@@ -61,6 +61,13 @@ As a user of the Game Base website, I want to:
 
 ***
 
+## Database Model
+- Database schema for Game Base
+
+ ![database schema](documentation/wireframes/gamebase-schema.png)
+
+***
+
 ## Features 
 
 ### Existing Features 
