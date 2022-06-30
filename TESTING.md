@@ -33,6 +33,16 @@ Screenshot of these Jest tests running in the terminal:
 
 ***
 
+### Fixed Bugs
+
+I used the built-in [GitHub Issues](https://github.com/antonia-white/game-base/issues) tracker for tracking any active bugs during development. Here are the issues tracked that have been closed and working as intended:
+
+- PSQL connection error [#1](https://github.com/antonia-white/game-base/issues/1)
+- Bug bug bug [#2](https://github.com/antonia-white/game-base/issues/2)
+- etc.
+
+***
+
 ## Unfixed Bugs 
 
 ***
