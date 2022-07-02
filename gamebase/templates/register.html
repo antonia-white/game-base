@@ -1,4 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h3>Register</h3>
+
+<div class="row">
+    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
+        <div class="card-panel">
+            <!-- First Name -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="fname" name="fname" type="text" class="validate">
+                    <label for="fname">First Name</label>
+                </div>
+            </div>
+            <!-- Password -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" name="password" type="password" class="validate">
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <!-- Register -->
+            <div class="row">
+                <button type="submit" class="col s12 btn-large">Register</button>
+            </div>
+        </div>
+    </form>
+</div>
+
 {% endblock %}
