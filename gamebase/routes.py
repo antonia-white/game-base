@@ -7,6 +7,36 @@ from gamebase.models import Game, Genre, User
 
 # GAMES - DB
 @app.route("/")
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        # check if email exists in db
+        existing_user = User.query.filter(User.email == \
+                                           request.form.get("email").lower()).all()
+
+        if existing_user:
+            print(request.form.get("email"))
+            # ensure hashed password matches user input
+            if check_password_hash(
+                    existing_user[0].password, request.form.get("password")):
+                        session["user"] = request.form.get("email").lower()
+                        flash("Welcome, {}".format(
+                            request.form.get("fname")))
+                        return redirect(url_for(
+                            "games", email=session["user"]))
+            else:
+                # invalid password match
+                flash("Incorrect Email and/or Password")
+                return redirect(url_for("login"))
+
+        else:
+            # email doesn't exist
+            flash("Incorrect Email and/or Password")
+            return redirect(url_for("login"))
+
+    return render_template("login.html")
+
+
 @app.route("/get_games")
 def get_games():
 
@@ -214,36 +244,6 @@ def register():
         return redirect(url_for("profile", email=session["user"]))
 
     return render_template("register.html")
-
-
-@app.route("/login", methods=["GET", "POST"])
-def login():
-    if request.method == "POST":
-        # check if email exists in db
-        existing_user = User.query.filter(User.email == \
-                                           request.form.get("email").lower()).all()
-
-        if existing_user:
-            print(request.form.get("email"))
-            # ensure hashed password matches user input
-            if check_password_hash(
-                    existing_user[0].password, request.form.get("password")):
-                        session["user"] = request.form.get("email").lower()
-                        flash("Welcome, {}".format(
-                            request.form.get("fname")))
-                        return redirect(url_for(
-                            "profile", email=session["user"]))
-            else:
-                # invalid password match
-                flash("Incorrect Email and/or Password")
-                return redirect(url_for("login"))
-
-        else:
-            # email doesn't exist
-            flash("Incorrect Email and/or Password")
-            return redirect(url_for("login"))
-
-    return render_template("login.html")
 
 
 @app.route("/logout")
