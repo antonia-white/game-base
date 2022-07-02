@@ -5,6 +5,7 @@ from gamebase import app, db, mongo
 from gamebase.models import Game, Genre, User
 
 
+# GAMES - DB
 @app.route("/")
 @app.route("/get_games")
 def get_games():
@@ -13,19 +14,28 @@ def get_games():
         flash("You must be admin to manage games!")
         return redirect(url_for("get_games"))
 
-    games = list(Genre.query.order_by(Game.title).all())
+    games = list(Genre.query.order_by(title).all())
     return render_template("games.html", games=games)
 
 
 @app.route("/add_game", methods=["GET", "POST"])
-def add_Game():
+def add_game():
 
     if "user" not in session or session["user"] != "admin":
         flash("You must be admin to manage games!")
         return redirect(url_for("get_games"))
 
     if request.method == "POST":
-        game = Game(title=request.form.get("title"))
+        game = {
+            "id": request.form.get("id"),
+            "title": request.form.get("title"),
+            "developer": request.form.get("developer"),
+            "release_date": request.form.get("release_date"),
+            "is_singleplayer": is_singleplayer,
+            "image_url": request.form.get("image_url"),
+            "genre_id": request.form.get("genre_id"),
+            "user_id": request.form.get("user_id")
+        }
         db.session.add(game)
         db.session.commit()
         return redirect(url_for("get_games"))
@@ -40,7 +50,7 @@ def edit_game(game_id):
     
     game = Game.query.get_or_404(game_id)
     if request.method == "POST":
-        Game.title = request.form.get("title")
+        title = request.form.get("title")
         db.session.commit()
         return redirect(url_for("get_games"))
     return render_template("edit_game.html", game=game)
@@ -58,7 +68,7 @@ def delete_game(game_id):
     mongo.db.consoles.delete_many({"game_id": str(game_id)})
     return redirect(url_for("get_games"))
 
-
+# CONSOLES - MONGO
 @app.route("/get_consoles")
 def get_consoles():
     consoles = list(mongo.db.consoles.find())
@@ -76,7 +86,7 @@ def search():
 def add_console():
     if "user" not in session:
         flash("You need to be logged in to add a console")
-        return redirect(url_for("get_consoles"))
+        return redirect(url_for("get_games"))
 
     if request.method == "POST":
         console = {
@@ -84,7 +94,7 @@ def add_console():
         }
         mongo.db.consoles.insert_one(console)
         flash("console Successfully Added")
-        return redirect(url_for("get_consoles"))
+        return redirect(url_for("get_games"))
 
     genres = list(Genre.query.order_by(Genre.genre_name).all())
     return render_template("add_console.html", genres=genres)
@@ -97,7 +107,7 @@ def edit_console(_id):
 
     if "user" not in session or session["user"] != console["created_by"]:
         flash("You can only edit your own consoles!")
-        return redirect(url_for("get_consoles"))
+        return redirect(url_for("get_games"))
 
     if request.method == "POST":
         submit = {
@@ -117,58 +127,58 @@ def delete_console(_id):
 
     if "user" not in session or session["user"] != console["created_by"]:
         flash("You can only delete your own consoles!")
-        return redirect(url_for("get_consoles"))
+        return redirect(url_for("get_games"))
 
     mongo.db.consoles.remove({"_id": ObjectId(_id)})
     flash("console successfully deleted")
-    return redirect(url_for("get_consoles"))
+    return redirect(url_for("get_games"))
 
-
+# GENRE - DB
 @app.route("/get_genres")
 def get_genres():
 
     if "user" not in session or session["user"] != "admin":
         flash("You must be admin to manage genres!")
-        return redirect(url_for("get_consoles"))
+        return redirect(url_for("get_games"))
 
     genres = list(Genre.query.order_by(Genre.genre_name).all())
     return render_template("genres.html", genres=genres)
 
 
-@app.route("/add_Genre", methods=["GET", "POST"])
-def add_Genre():
+@app.route("/add_genre", methods=["GET", "POST"])
+def add_genre():
 
     if "user" not in session or session["user"] != "admin":
         flash("You must be admin to manage genres!")
-        return redirect(url_for("get_consoles"))
+        return redirect(url_for("get_games"))
 
     if request.method == "POST":
         Genre = Genre(genre_name=request.form.get("genre_name"))
         db.session.add(Genre)
         db.session.commit()
         return redirect(url_for("get_genres"))
-    return render_template("add_Genre.html")
+    return render_template("add_genre.html")
 
 
-@app.route("/edit_Genre/<int:genre_id>", methods=["GET", "POST"])
-def edit_Genre(genre_id):
+@app.route("/edit_genre/<int:genre_id>", methods=["GET", "POST"])
+def edit_genre(genre_id):
     if "user" not in session or session["user"] != "admin":
         flash("You must be admin to manage genres!")
-        return redirect(url_for("get_consoles"))
+        return redirect(url_for("get_games"))
     
     Genre = Genre.query.get_or_404(genre_id)
     if request.method == "POST":
         Genre.genre_name = request.form.get("genre_name")
         db.session.commit()
         return redirect(url_for("get_genres"))
-    return render_template("edit_Genre.html", Genre=Genre)
+    return render_template("edit_genre.html", Genre=Genre)
 
 
-@app.route("/delete_Genre/<int:genre_id>")
-def delete_Genre(genre_id):
+@app.route("/delete_genre/<int:genre_id>")
+def delete_genre(genre_id):
     if session["user"] != "admin":
         flash("You must be admin to manage genres!")
-        return redirect(url_for("get_consoles"))
+        return redirect(url_for("get_games"))
 
     Genre = Genre.query.get_or_404(genre_id)
     db.session.delete(Genre)
@@ -176,7 +186,7 @@ def delete_Genre(genre_id):
     mongo.db.consoles.delete_many({"genre_id": str(genre_id)})
     return redirect(url_for("get_genres"))
 
-
+# USERS - DB
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -234,15 +244,6 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
-
-
-@app.route("/profile/<email>", methods=["GET", "POST"])
-def profile(email):
-        
-    if "user" in session:
-        return render_template("profile.html", email=session["user"])
-
-    return redirect(url_for("login"))
 
 
 @app.route("/logout")
