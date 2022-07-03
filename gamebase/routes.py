@@ -19,11 +19,13 @@ def login():
             # ensure hashed password matches user input
             if check_password_hash(
                     existing_user[0].password, request.form.get("password")):
-                        session["user"] = request.form.get("email").lower()
-                        flash("Welcome, {}".format(
-                            request.form.get("fname")))
+                    # TODO - grab fname from user db to display on login
+                        # session["user"] = request.form.get("email").lower()
+                        flash("Hello")
+                        # .format(request.form.get("fname")))
+                            # session["user"]))
                         return redirect(url_for(
-                            "games", email=session["user"]))
+                            "get_games", email=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Email and/or Password")
@@ -241,7 +243,7 @@ def register():
         # put the new user into 'session' cookie
         session["user"] = request.form.get("email").lower()
         flash("Registration Successful!")
-        return redirect(url_for("profile", email=session["user"]))
+        return redirect(url_for("get_games", email=session["user"]))
 
     return render_template("register.html")
 
