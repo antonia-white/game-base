@@ -41,12 +41,7 @@ def login():
 
 @app.route("/get_games")
 def get_games():
-
-    if "user" not in session or session["user"] != "admin":
-        flash("You must be admin to manage games!")
-        return redirect(url_for("login"))
-
-    games = list(Genre.query.order_by(title).all())
+    games = list(Game.query.order_by(Game.title).all())
     return render_template("games.html", games=games)
 
 
