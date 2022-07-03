@@ -1,4 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h3> Your Games </h3>
+
+<p class="center-align">
+    <a href="{{ url_for('add_game') }}">Add games</a>
+</p>
+
+{% if games|length > 0 %}
+<ul>
+    {% for game in games %}
+    <li>
+        <div class="collapsible-header white-text light-blue darken-4 text-shadow">
+            <div class="col s9">
+                <strong>{{ game.title }}</strong> : {{ game.developer }}
+            </div>
+        </div>
+        <div class="collapsible-body">
+            <strong>{{ game.genre_id }}</strong>
+            <p>singleplayer: {{ game.is_singleplayer }}</p>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+    <h3 class="red-text text-darken-4 center-align">Nothing to see here...</h3>
+{% endif %}
+
 {% endblock %}
