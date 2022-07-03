@@ -48,9 +48,9 @@ def get_games():
 @app.route("/add_game", methods=["GET", "POST"])
 def add_game():
 
-    if "user" not in session or session["user"] != "admin":
-        flash("You must be admin to manage games!")
-        return redirect(url_for("get_games"))
+    # if "user" not in session or session["user"] != "admin":
+    #     flash("You must be admin to manage games!")
+    #     return redirect(url_for("get_games"))
 
     if request.method == "POST":
         game = {
