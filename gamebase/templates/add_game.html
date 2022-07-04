@@ -22,7 +22,7 @@
         <!-- Genre -->
         <div class="row">
             <div class="input-field col s12">
-                <select id="genre" name="genre" >
+                <select id="genre" name="genre">
                     <option value="" disabled selected>Choose the genre</option>
                     {% for genre in genres %}
                         <option value="{{ genre.id }}">{{ genre.genre_name }}</option>
