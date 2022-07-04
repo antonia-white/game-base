@@ -78,16 +78,24 @@ def add_game():
 
 @app.route("/edit_game/<int:game_id>", methods=["GET", "POST"])
 def edit_game(game_id):
-    if "user" not in session or session["user"] != "admin":
-        flash("You must be admin to manage games!")
-        return redirect(url_for("get_games"))
-    
+    # if "user" not in session or session["user"] != "admin":
+    #     flash("You must be admin to manage games!")
+    #     return redirect(url_for("get_games"))
+    genres = list(Genre.query.order_by(Genre.genre_name).all())
     game = Game.query.get_or_404(game_id)
+    user = User.query.filter(User.email == \
+            session['user']).first()
     if request.method == "POST":
-        title = request.form.get("title")
+        game.title=request.form.get("title")
+        game.developer=request.form.get("developer")
+        game.release_date=request.form.get("release_date")
+        game.is_singleplayer=bool(True if request.form.get("is_singleplayer") else False)
+        game.image_url=request.form.get("image_url")
+        game.genre_id=request.form.get("genre")
+        game.user_id=user.id
         db.session.commit()
         return redirect(url_for("get_games"))
-    return render_template("edit_game.html", game=game)
+    return render_template("edit_game.html", game=game, genres=genres)
 
 
 @app.route("/delete_game/<int:game_id>")
