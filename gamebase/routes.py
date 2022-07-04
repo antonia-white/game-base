@@ -51,7 +51,10 @@ def add_game():
     #     flash("You must be admin to manage games!")
     #     return redirect(url_for("get_games"))
 
+    # Grab list of all genres from genre database
+    genres = list(Genre.query.order_by(Genre.genre_name).all())
     if request.method == "POST":
+        # Create an instance of game
         game = Game(
             #"id": request.form.get("id"),
             title=request.form.get("title"),
@@ -59,14 +62,15 @@ def add_game():
             release_date=request.form.get("release_date"),
             is_singleplayer=bool(True if request.form.get("is_singleplayer") else False),
             image_url=request.form.get("image_url"),
-            genre_id=request.form.get("genre_id"),
+            genre_id=request.form.get("genre"),
             user_id=request.form.get("user_id")
         )
         print(game)
+        # commit game to the database
         db.session.add(game)
         db.session.commit()
         return redirect(url_for("get_games"))
-    return render_template("add_game.html")
+    return render_template("add_game.html", genres=genres)
 
 
 @app.route("/edit_game/<int:game_id>", methods=["GET", "POST"])
