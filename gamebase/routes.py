@@ -54,6 +54,9 @@ def add_game():
     # Grab list of all genres from genre database
     genres = list(Genre.query.order_by(Genre.genre_name).all())
     if request.method == "POST":
+        user = User.query.filter(User.email == \
+            session['user']).first()
+        # print("user: " + str(user.__dict__))
         # Create an instance of game
         game = Game(
             #"id": request.form.get("id"),
@@ -63,9 +66,9 @@ def add_game():
             is_singleplayer=bool(True if request.form.get("is_singleplayer") else False),
             image_url=request.form.get("image_url"),
             genre_id=request.form.get("genre"),
-            user_id=request.form.get("user_id")
+            user_id=user.id
         )
-        print(game)
+        # print("game: " + str(game))
         # commit game to the database
         db.session.add(game)
         db.session.commit()
