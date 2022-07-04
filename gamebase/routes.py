@@ -46,22 +46,23 @@ def get_games():
 
 @app.route("/add_game", methods=["GET", "POST"])
 def add_game():
-
+    # genre = list(Genre.query.order_by(genre_name).all())
     # if "user" not in session or session["user"] != "admin":
     #     flash("You must be admin to manage games!")
     #     return redirect(url_for("get_games"))
 
     if request.method == "POST":
-        game = {
-            "id": request.form.get("id"),
-            "title": request.form.get("title"),
-            "developer": request.form.get("developer"),
-            "release_date": request.form.get("release_date"),
-            "is_singleplayer": is_singleplayer,
-            "image_url": request.form.get("image_url"),
-            "genre_id": request.form.get("genre_id"),
-            "user_id": request.form.get("user_id")
-        }
+        game = Game(
+            #"id": request.form.get("id"),
+            title=request.form.get("title"),
+            developer=request.form.get("developer"),
+            release_date=request.form.get("release_date"),
+            is_singleplayer=bool(True if request.form.get("is_singleplayer") else False),
+            image_url=request.form.get("image_url"),
+            genre_id=request.form.get("genre_id"),
+            user_id=request.form.get("user_id")
+        )
+        print(game)
         db.session.add(game)
         db.session.commit()
         return redirect(url_for("get_games"))
