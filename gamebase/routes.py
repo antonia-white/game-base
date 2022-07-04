@@ -15,12 +15,11 @@ def login():
                                            request.form.get("email").lower()).all()
 
         if existing_user:
-            print(request.form.get("email"))
             # ensure hashed password matches user input
             if check_password_hash(
                     existing_user[0].password, request.form.get("password")):
                     # TODO - grab fname from user db to display on login
-                        # session["user"] = request.form.get("email").lower()
+                        session["user"] = request.form.get("email").lower()
                         flash("Hello")
                         # .format(request.form.get("fname")))
                             # session["user"]))
