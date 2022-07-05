@@ -25,7 +25,7 @@
                 <select id="genre" name="genre">
                     <option value="" disabled selected>Choose the genre</option>
                     {% for genre in genres %}
-                        <option value="{{ genre.id }}">{{ genre.genre_name }}</option>
+                    <option value="{{ genre.id }}">{{ genre.genre_name }}</option>
                     {% endfor %}
                 </select>
                 <label>Genre</label>
@@ -35,7 +35,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <input id="release_date" name="release_date" type="date" class="validate">
-                <label for="release_date">Release date</label>
+                <label for="release_date">Release date<span class="material-symbols-outlined">Event</span></label>
             </div>
         </div>
         <!-- Is Singleplayer -->
@@ -52,7 +52,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <input id="image_url" name="image_url" type="text" class="validate">
-                <label for="image_url">Image URL</label>
+                <label for="image_url">Image URL<span class="material-symbols-outlined">Link</span></label>
             </div>
         </div>
         <!-- submit button -->
