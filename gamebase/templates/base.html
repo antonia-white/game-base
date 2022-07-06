@@ -10,11 +10,32 @@
     <!-- CSS link -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     <!-- Googl Icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     {% block styles %}
     {% endblock %}
     <title>Game Base</title>
 </head>
+
+<!-- Top navbar -->
+<nav>
+    <div class="nav-wrapper">
+        <a href="{{ url_for('get_games') }}" class="brand-logo">Logo</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-symbols-outlined">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="{{ url_for('get_games') }}">Games</a></li>
+            <li><a href="{{ url_for('get_genres') }}">Genres</a></li>
+            <li><a href="{{ url_for('get_consoles') }}">Consoles</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Mobile navbar -->
+<ul class="sidenav" id="mobile-demo">
+    <li><a href="{{ url_for('get_games') }}">Games</a></li>
+    <li><a href="{{ url_for('get_genres') }}">Genres</a></li>
+    <li><a href="{{ url_for('get_consoles') }}">Consoles</a></li>
+</ul>
 
 <body>
 
