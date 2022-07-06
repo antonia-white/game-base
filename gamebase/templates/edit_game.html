@@ -8,14 +8,14 @@
         <!-- Title -->
         <div class="row">
             <div class="input-field col s12">
-                <input id="title" name="title" value="{{ game.title }}" type="text" class="validate" maxlength="50" required>
+                <input id="title" name="title" value="{{ game.title.title() }}" type="text" class="validate" maxlength="50" required>
                 <label for="title">Title</label>
             </div>
         </div>
         <!-- Developer -->
         <div class="row">
             <div class="input-field col s12">
-                <input id="developer" name="developer" value="{{ game.developer }}" type="text" maxlength="50" class="validate">
+                <input id="developer" name="developer" value="{{ game.developer.capitalize() }}" type="text" maxlength="50" class="validate">
                 <label for="developer">Developer</label>
             </div>
         </div>
