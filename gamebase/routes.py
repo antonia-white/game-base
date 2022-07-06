@@ -100,9 +100,9 @@ def edit_game(game_id):
 
 @app.route("/delete_game/<int:game_id>")
 def delete_game(game_id):
-    if session["user"] != "admin":
-        flash("You must be admin to manage games!")
-        return redirect(url_for("get_games"))
+    # if session["user"] != "admin":
+    #     flash("You must be admin to manage games!")
+    #     return redirect(url_for("get_games"))
 
     game = Game.query.get_or_404(game_id)
     db.session.delete(game)
@@ -179,9 +179,9 @@ def delete_console(_id):
 @app.route("/get_genres")
 def get_genres():
 
-    if "user" not in session or session["user"] != "admin":
-        flash("You must be admin to manage genres!")
-        return redirect(url_for("get_games"))
+    # if "user" not in session or session["user"] != "admin":
+    #     flash("You must be admin to manage genres!")
+    #     return redirect(url_for("get_games"))
 
     genres = list(Genre.query.order_by(Genre.genre_name).all())
     return render_template("genres.html", genres=genres)
