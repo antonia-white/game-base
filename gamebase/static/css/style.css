@@ -12,3 +12,8 @@
     vertical-align: middle;
     padding-right: 0.25em;
 }
+
+.card{
+    position: relative;
+    width: 30%;
+}
