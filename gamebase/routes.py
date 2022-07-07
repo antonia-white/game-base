@@ -195,8 +195,10 @@ def add_genre():
     #     return redirect(url_for("get_games"))
 
     if request.method == "POST":
-        Genre = Genre(genre_name=request.form.get("genre_name"))
-        db.session.add(Genre)
+        genre = Genre(
+            genre_name=request.form.get("genre-name")
+        )
+        db.session.add(genre)
         db.session.commit()
         return redirect(url_for("get_genres"))
     return render_template("add_genre.html")
