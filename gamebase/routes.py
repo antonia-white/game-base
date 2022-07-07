@@ -190,9 +190,9 @@ def get_genres():
 @app.route("/add_genre", methods=["GET", "POST"])
 def add_genre():
 
-    if "user" not in session or session["user"] != "admin":
-        flash("You must be admin to manage genres!")
-        return redirect(url_for("get_games"))
+    # if "user" not in session or session["user"] != "admin":
+    #     flash("You must be admin to manage genres!")
+    #     return redirect(url_for("get_games"))
 
     if request.method == "POST":
         Genre = Genre(genre_name=request.form.get("genre_name"))
