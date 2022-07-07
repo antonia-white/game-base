@@ -41,7 +41,8 @@ def login():
 @app.route("/get_games")
 def get_games():
     games = list(Game.query.order_by(Game.title).all())
-    return render_template("games.html", games=games)
+    genres = list(Genre.query.all())
+    return render_template("games.html", games=games, genres=genres)
 
 
 @app.route("/add_game", methods=["GET", "POST"])
@@ -184,7 +185,8 @@ def get_genres():
     #     return redirect(url_for("get_games"))
 
     genres = list(Genre.query.order_by(Genre.genre_name).all())
-    return render_template("genres.html", genres=genres)
+    games = list(Game.query.all())
+    return render_template("genres.html", genres=genres, games=games)
 
 
 @app.route("/add_genre", methods=["GET", "POST"])
@@ -206,9 +208,9 @@ def add_genre():
 
 @app.route("/edit_genre/<int:genre_id>", methods=["GET", "POST"])
 def edit_genre(genre_id):
-    if "user" not in session or session["user"] != "admin":
-        flash("You must be admin to manage genres!")
-        return redirect(url_for("get_games"))
+    # if "user" not in session or session["user"] != "admin":
+    #     flash("You must be admin to manage genres!")
+    #     return redirect(url_for("get_games"))
     
     Genre = Genre.query.get_or_404(genre_id)
     if request.method == "POST":
@@ -220,9 +222,9 @@ def edit_genre(genre_id):
 
 @app.route("/delete_genre/<int:genre_id>")
 def delete_genre(genre_id):
-    if session["user"] != "admin":
-        flash("You must be admin to manage genres!")
-        return redirect(url_for("get_games"))
+    # if session["user"] != "admin":
+    #     flash("You must be admin to manage genres!")
+    #     return redirect(url_for("get_games"))
 
     Genre = Genre.query.get_or_404(genre_id)
     db.session.delete(Genre)
