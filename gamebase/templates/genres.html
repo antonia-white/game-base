@@ -13,39 +13,50 @@
 {% for genre in genres %}
 <ul>
     <li>
-        <h4>{{ genre.genre_name }}</h4>
+        <h4>{{ genre.genre_name }}
+            <a href="{{ url_for('edit_genre', genre_id=genre.id) }}" class="waves-effect waves-green btn-flat">
+                <span class="material-symbols-outlined">Edit</span>
+            </a>
+            <a href="{{ url_for('delete_genre', genre_id=genre.id) }}" class="waves-effect waves-red btn-flat"><span
+                    class="material-symbols-outlined">Delete</span>
+            </a>
+        </h4>
+
         {% for game in games %}
-            {% if game.genre_id == genre.id %}
-            <div class="card small">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <!-- {% if game.image_url is not none %} -->
-                    <img class="activator" src="{{ game.image_url }}">
-                    <!-- {% else %}
+        {% if game.genre_id == genre.id %}
+        <div class="card small">
+            <div class="card-image waves-effect waves-block waves-light">
+                <!-- {% if game.image_url is not none %} -->
+                <img class="activator" src="{{ game.image_url }}">
+                <!-- {% else %}
                     <img class="activator" src="{{ url_for('gamebase/static/media/no-image.jpg') }}">
                     {% endif %} -->
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">{{ game.title.title() }}<i
-                            class="material-symbols-outlined right">more_vert</i></span>
-                    <p><a href="{{ url_for('edit_game', game_id=game.id) }}" class="btn green accent-4">
-                        <span class="material-symbols-outlined">Edit</span>
-                            Edit</a>
-                    <a href="{{ url_for('delete_game', game_id=game.id) }}" class="btn red"><span class="material-symbols-outlined">Delete</span>
-                        Delete</a></p>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">{{ game.title.title() }}<i class="material-symbols-outlined right">close</i></span>
-                    <p>Developer: {{ game.developer.capitalize() }}</p>
-                    {% for genre in genres %}
-                        {% if game.genre_id == genre.id %}
-                            <p>Genre: {{ genre.genre_name }}</p>
-                        {% endif %}
-                    {% endfor %}
-                    <p>Release date: {{ game.release_date }}</p>
-                    <p>Singleplayer: {{ game.is_singleplayer }}</p>
-                </div>
             </div>
-            {% endif %}
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">{{ game.title.title() }}<i
+                        class="material-symbols-outlined right">more_vert</i></span>
+                <p><a href="{{ url_for('edit_game', game_id=game.id) }}" class="btn green accent-4">
+                        <span class="material-symbols-outlined">Edit</span>
+                        Edit</a>
+                    <a href="{{ url_for('delete_game', game_id=game.id) }}" class="btn red"><span
+                            class="material-symbols-outlined">Delete</span>
+                        Delete</a>
+                </p>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">{{ game.title.title() }}<i
+                        class="material-symbols-outlined right">close</i></span>
+                <p>Developer: {{ game.developer.capitalize() }}</p>
+                {% for genre in genres %}
+                {% if game.genre_id == genre.id %}
+                <p>Genre: {{ genre.genre_name }}</p>
+                {% endif %}
+                {% endfor %}
+                <p>Release date: {{ game.release_date }}</p>
+                <p>Singleplayer: {{ game.is_singleplayer }}</p>
+            </div>
+        </div>
+        {% endif %}
         {% endfor %}
     </li>
 </ul>
