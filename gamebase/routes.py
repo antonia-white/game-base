@@ -18,7 +18,7 @@ def login():
             # ensure hashed password matches user input
             if check_password_hash(
                     existing_user[0].password, request.form.get("password")):
-                    # TODO - grab fname from user db to display on login
+                    # TODO: - grab fname from user db to display on login
                         session["user"] = request.form.get("email").lower()
                         flash("Hello")
                         # .format(request.form.get("fname")))
@@ -214,6 +214,7 @@ def edit_genre(genre_id):
     
     genre = Genre.query.get_or_404(genre_id)
     if request.method == "POST":
+        # TODO: - it should migrate all games under the edited genre to the new genre name
         genre.genre_name = request.form.get("genre_name")
         db.session.commit()
         return redirect(url_for("get_genres"))
@@ -226,7 +227,7 @@ def delete_genre(genre_id):
     #     flash("You must be admin to manage genres!")
     #     return redirect(url_for("get_games"))
 
-    # TODO - are you sure you want to delete the genre {{ genre.genre_name }} and all its associated games? y/n
+    # TODO: - are you sure you want to delete the genre {{ genre.genre_name }} and all its associated games? y/n
     genre = Genre.query.get_or_404(genre_id)
     db.session.delete(genre)
     db.session.commit()

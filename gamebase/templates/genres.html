@@ -26,6 +26,7 @@
         {% if game.genre_id == genre.id %}
         <div class="card small">
             <div class="card-image waves-effect waves-block waves-light">
+                <!-- TODO: have default image display if no img url is provided by user -->
                 <!-- {% if game.image_url is not none %} -->
                 <img class="activator" src="{{ game.image_url }}">
                 <!-- {% else %}
