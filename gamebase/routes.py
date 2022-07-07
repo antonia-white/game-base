@@ -212,12 +212,12 @@ def edit_genre(genre_id):
     #     flash("You must be admin to manage genres!")
     #     return redirect(url_for("get_games"))
     
-    Genre = Genre.query.get_or_404(genre_id)
+    genre = Genre.query.get_or_404(genre_id)
     if request.method == "POST":
-        Genre.genre_name = request.form.get("genre_name")
+        genre.genre_name = request.form.get("genre_name")
         db.session.commit()
         return redirect(url_for("get_genres"))
-    return render_template("edit_genre.html", Genre=Genre)
+    return render_template("edit_genre.html", genre=genre)
 
 
 @app.route("/delete_genre/<int:genre_id>")
@@ -226,10 +226,11 @@ def delete_genre(genre_id):
     #     flash("You must be admin to manage genres!")
     #     return redirect(url_for("get_games"))
 
-    Genre = Genre.query.get_or_404(genre_id)
-    db.session.delete(Genre)
+    # TODO - are you sure you want to delete the genre {{ genre.genre_name }} and all its associated games? y/n
+    genre = Genre.query.get_or_404(genre_id)
+    db.session.delete(genre)
     db.session.commit()
-    mongo.db.consoles.delete_many({"genre_id": str(genre_id)})
+    # mongo.db.consoles.delete_many({"genre_id": str(genre_id)})
     return redirect(url_for("get_genres"))
 
 # USERS - DB
