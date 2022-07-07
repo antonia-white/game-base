@@ -32,7 +32,11 @@
     <div class="card-reveal">
         <span class="card-title grey-text text-darken-4">{{ game.title.title() }}<i class="material-symbols-outlined right">close</i></span>
         <p>Developer: {{ game.developer.capitalize() }}</p>
-        <p>Genre: {{ game.genre_id }}</p>
+        {% for genre in genres %}
+            {% if game.genre_id == genre.id %}
+                <p>Genre: {{ genre.genre_name }}</p>
+            {% endif %}
+        {% endfor %}
         <p>Release date: {{ game.release_date }}</p>
         <p>Singleplayer: {{ game.is_singleplayer }}</p>
     </div>
