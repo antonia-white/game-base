@@ -1,4 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h3>Genres</h3>
+
+<p class="center-align">
+    <a href="{{ url_for('add_genre') }}" class="btn-large"><span class="material-symbols-outlined">Add</span>
+        Add genre</a>
+</p>
+
+{% if genres|length > 0 %}
+
+{% for genre in genres %}
+<ul>
+    <li>
+        {{ genre.genre_name }}
+    </li>
+</ul>
+
+{% endfor %}
+
+{% else %}
+<h3 class="red-text text-darken-4 center-align">Nothing to see here...</h3>
+{% endif %}
+
 {% endblock %}
