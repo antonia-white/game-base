@@ -26,12 +26,12 @@
         {% if game.genre_id == genre.id %}
         <div class="card small">
             <div class="card-image waves-effect waves-block waves-light">
-                <!-- TODO: have default image display if no img url is provided by user -->
-                <!-- {% if game.image_url is not none %} -->
+                <!-- have default image display if no img url is provided by user -->
+                {% if game.image_url == "" %}
+                <img class="activator" src="{{ url_for('static', filename = 'media/' +'no-image.jpg') }}">
+                {% else %}
                 <img class="activator" src="{{ game.image_url }}">
-                <!-- {% else %}
-                    <img class="activator" src="{{ url_for('gamebase/static/media/no-image.jpg') }}">
-                    {% endif %} -->
+                {% endif %}
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">{{ game.title.title() }}<i
