@@ -156,7 +156,7 @@ def edit_console(_id):
         submit = {
             "console_name": request.form.get("console_name")
         }
-        mongo.db.consoles.update_many({"_id": ObjectId(_id)}, submit)
+        mongo.db.consoles.update_one({"_id": ObjectId(_id)}, submit)
         return redirect(url_for("get_consoles"))
         flash(f"{console['console_name']} Successfully Updated")
 
