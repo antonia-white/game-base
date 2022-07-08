@@ -118,26 +118,26 @@ def get_consoles():
     return render_template("consoles.html", consoles=consoles)
 
 
-@app.route("/search", methods=["GET", "POST"])
-def search():
-    query = request.form.get("query")
-    consoles = list(mongo.db.consoles.find({"$text": {"$search": query}}))
-    return render_template("consoles.html", consoles=consoles)
+# @app.route("/search", methods=["GET", "POST"])
+# def search():
+#     query = request.form.get("query")
+#     consoles = list(mongo.db.consoles.find({"$text": {"$search": query}}))
+#     return render_template("consoles.html", consoles=consoles)
 
 
 @app.route("/add_console", methods=["GET", "POST"])
 def add_console():
-    if "user" not in session:
-        flash("You need to be logged in to add a console")
-        return redirect(url_for("get_games"))
+    # if "user" not in session:
+    #     flash("You need to be logged in to add a console")
+    #     return redirect(url_for("get_games"))
 
     if request.method == "POST":
         console = {
             "console_name": request.form.get("console_name")
         }
         mongo.db.consoles.insert_one(console)
-        flash("console Successfully Added")
-        return redirect(url_for("get_games"))
+        flash(f"{console['console_name']} Console Successfully Added")
+        return redirect(url_for("get_consoles"))
 
     genres = list(Genre.query.order_by(Genre.genre_name).all())
     return render_template("add_console.html", genres=genres)
@@ -148,19 +148,19 @@ def edit_console(_id):
     
     console = mongo.db.consoles.find_one({"_id": ObjectId(_id)})
 
-    if "user" not in session or session["user"] != console["created_by"]:
-        flash("You can only edit your own consoles!")
-        return redirect(url_for("get_games"))
+    # if "user" not in session or session["user"] != console["created_by"]:
+    #     flash("You can only edit your own consoles!")
+    #     return redirect(url_for("get_games"))
 
     if request.method == "POST":
         submit = {
             "console_name": request.form.get("console_name")
         }
-        mongo.db.consoles.update({"_id": ObjectId(_id)}, submit)
-        flash("console successfully updated")
+        mongo.db.consoles.update_many({"_id": ObjectId(_id)}, submit)
+        return redirect(url_for("get_consoles"))
+        flash(f"{console['console_name']} Successfully Updated")
 
-    genres = list(Genre.query.order_by(Genre.genre_name).all())
-    return render_template("edit_console.html", console=console, genres=genres)
+    return render_template("edit_console.html", console=console)
 
 
 @app.route("/delete_console/<_id>")
@@ -168,13 +168,14 @@ def delete_console(_id):
 
     console = mongo.db.consoles.find_one({"_id": ObjectId(_id)})
 
-    if "user" not in session or session["user"] != console["created_by"]:
-        flash("You can only delete your own consoles!")
-        return redirect(url_for("get_games"))
+    # if "user" not in session or session["user"] != console["created_by"]:
+    #     flash("You can only delete your own consoles!")
+    #     return redirect(url_for("get_games"))
 
-    mongo.db.consoles.remove({"_id": ObjectId(_id)})
-    flash("console successfully deleted")
-    return redirect(url_for("get_games"))
+    # TODO: are you sure you want to delete this console?
+    mongo.db.consoles.delete_one({"_id": ObjectId(_id)})
+    flash("Console Successfully Deleted")
+    return redirect(url_for("get_consoles"))
 
 # GENRE - DB
 @app.route("/get_genres")
