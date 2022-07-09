@@ -18,13 +18,9 @@ def login():
             # ensure hashed password matches user input
             if check_password_hash(
                     existing_user[0].password, request.form.get("password")):
-                    # TODO: - grab fname from user db to display on login
-                        session["user"] = request.form.get("email").lower()
-                        flash("Hello")
-                        # .format(request.form.get("fname")))
-                            # session["user"]))
-                        return redirect(url_for(
-                            "get_games", email=session["user"]))
+                        session["user"] = existing_user[0].id
+                        flash(f"Welcome, {existing_user[0].fname.capitalize()}")
+                        return redirect(url_for("get_games"))
             else:
                 # invalid password match
                 flash("Incorrect Email and/or Password")
