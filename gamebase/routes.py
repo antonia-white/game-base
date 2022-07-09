@@ -41,8 +41,9 @@ def login():
 @app.route("/get_games")
 def get_games():
     games = list(Game.query.order_by(Game.title).all())
+    consoles = list(mongo.db.consoles.find())
     genres = list(Genre.query.all())
-    return render_template("games.html", games=games, genres=genres)
+    return render_template("games.html", games=games, genres=genres, consoles=consoles)
 
 
 @app.route("/add_game", methods=["GET", "POST"])
@@ -54,6 +55,7 @@ def add_game():
 
     # Grab list of all genres from genre database
     genres = list(Genre.query.order_by(Genre.genre_name).all())
+    consoles = list(mongo.db.consoles.find())
     if request.method == "POST":
         user = User.query.filter(User.email == \
             session['user']).first()
@@ -67,14 +69,14 @@ def add_game():
             is_singleplayer=bool(True if request.form.get("is_singleplayer") else False),
             image_url=request.form.get("image_url"),
             genre_id=request.form.get("genre"),
-            user_id=user.id
+            user_id=user.id,
+            console=request.form.get("console")
         )
-        # print("game: " + str(game))
-        # commit game to the database
+
         db.session.add(game)
         db.session.commit()
         return redirect(url_for("get_games"))
-    return render_template("add_game.html", genres=genres)
+    return render_template("add_game.html", genres=genres, consoles=consoles)
 
 
 @app.route("/edit_game/<int:game_id>", methods=["GET", "POST"])
@@ -82,6 +84,7 @@ def edit_game(game_id):
     # if "user" not in session or session["user"] != "admin":
     #     flash("You must be admin to manage games!")
     #     return redirect(url_for("get_games"))
+    consoles = list(mongo.db.consoles.find())
     genres = list(Genre.query.order_by(Genre.genre_name).all())
     game = Game.query.get_or_404(game_id)
     user = User.query.filter(User.email == \
@@ -93,10 +96,11 @@ def edit_game(game_id):
         game.is_singleplayer=bool(True if request.form.get("is_singleplayer") else False)
         game.image_url=request.form.get("image_url")
         game.genre_id=request.form.get("genre")
+        game.console=request.form.get("console")
         game.user_id=user.id
         db.session.commit()
         return redirect(url_for("get_games"))
-    return render_template("edit_game.html", game=game, genres=genres)
+    return render_template("edit_game.html", game=game, genres=genres, consoles=consoles)
 
 
 @app.route("/delete_game/<int:game_id>")
