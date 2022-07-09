@@ -10,6 +10,7 @@ class Game(db.Model):
     image_url = db.Column(db.Text)
     genre_id = db.Column(db.Integer, db.ForeignKey("genre.id", ondelete="CASCADE"), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id", ondelete="CASCADE"), nullable=False)
+    console = db.Column(db.String(50))
 
     def __repr__(self):
         return f"#{self.id} - Title: {self.title} | Singleplayer: {self.is_singleplayer}"
