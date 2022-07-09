@@ -17,10 +17,11 @@ def login():
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
-                    existing_user[0].password, request.form.get("password")):
-                        session["user"] = existing_user[0].id
-                        flash(f"Welcome, {existing_user[0].fname.capitalize()}")
-                        return redirect(url_for("get_games"))
+                existing_user[0].password, request.form.get("password")):
+                    session["user"] = existing_user[0].id
+                    # existing_user[0].id
+                    flash(f"Welcome, {existing_user[0].fname.capitalize()}")
+                    return redirect(url_for("get_games"))
             else:
                 # invalid password match
                 flash("Incorrect Email and/or Password")
@@ -44,21 +45,16 @@ def get_games():
 
 @app.route("/add_game", methods=["GET", "POST"])
 def add_game():
-    # genre = list(Genre.query.order_by(genre_name).all())
-    # if "user" not in session or session["user"] != "admin":
-    #     flash("You must be admin to manage games!")
-    #     return redirect(url_for("get_games"))
-
-    # Grab list of all genres from genre database
+    # Anyone logged in can add a game to the database
+    if "user" not in session: 
+        flash("You need to be logged in to add a game")
+        
     genres = list(Genre.query.order_by(Genre.genre_name).all())
     consoles = list(mongo.db.consoles.find())
     if request.method == "POST":
-        user = User.query.filter(User.email == \
+        user = User.query.filter(User.id == \
             session['user']).first()
-        # print("user: " + str(user.__dict__))
-        # Create an instance of game
         game = Game(
-            #"id": request.form.get("id"),
             title=request.form.get("title"),
             developer=request.form.get("developer"),
             release_date=request.form.get("release_date"),
@@ -75,15 +71,25 @@ def add_game():
     return render_template("add_game.html", genres=genres, consoles=consoles)
 
 
+
 @app.route("/edit_game/<int:game_id>", methods=["GET", "POST"])
 def edit_game(game_id):
-    # if "user" not in session or session["user"] != "admin":
-    #     flash("You must be admin to manage games!")
-    #     return redirect(url_for("get_games"))
+    # A user needs to be logged in to edit a game
+    print(str(session["user"]))
+    if "user" not in session: 
+        flash("You need to be logged in to edit a game.")
+        return redirect(url_for("login"))
+    # You can only edit games that have a matching user id 
+    print(session["user"])
+    print(Game.query.get_or_404(game_id).user_id)
+    if session["user"] != Game.query.get_or_404(game_id).user_id:
+        flash("This is not your game! You can only edit your own games. Please log in.")
+        return redirect(url_for("login"))
+
     consoles = list(mongo.db.consoles.find())
     genres = list(Genre.query.order_by(Genre.genre_name).all())
     game = Game.query.get_or_404(game_id)
-    user = User.query.filter(User.email == \
+    user = User.query.filter(User.id == \
             session['user']).first()
     if request.method == "POST":
         game.title=request.form.get("title")
@@ -101,11 +107,18 @@ def edit_game(game_id):
 
 @app.route("/delete_game/<int:game_id>")
 def delete_game(game_id):
-    # if session["user"] != "admin":
-    #     flash("You must be admin to manage games!")
-    #     return redirect(url_for("get_games"))
 
     game = Game.query.get_or_404(game_id)
+
+    # A user needs to be logged in to edit a game
+    if "user" not in session: 
+        flash("You need to be logged in to delete a game.")
+        return redirect(url_for("login"))
+    # You can only edit games that have a matching user id 
+    if session["user"] != Game.query.get_or_404(game_id).user_id:
+        flash("This is not your game! You can only delete your own games. Please log in.")
+        return redirect(url_for("login"))
+
     db.session.delete(game)
     db.session.commit()
     mongo.db.consoles.delete_many({"game_id": str(game_id)})
