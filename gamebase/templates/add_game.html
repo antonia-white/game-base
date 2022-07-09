@@ -31,6 +31,18 @@
                 <label>Genre</label>
             </div>
         </div>
+        <!-- Console -->
+        <div class="row">
+            <div class="input-field col s12">
+                <select id="console" name="console">
+                    <option value="" disabled selected>Choose the console</option>
+                    {% for console in consoles %}
+                    <option value="{{ console.console_name }}">{{ console.console_name }}</option>
+                    {% endfor %}
+                </select>
+                <label>Console</label>
+            </div>
+        </div>
         <!-- Release Date -->
         <div class="row">
             <div class="input-field col s12">
