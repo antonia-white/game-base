@@ -12,6 +12,8 @@
 
 {% for game in games %}
 
+<!-- Only display games that match with the user id -->
+{% if game.user_id == session["user"] %}
 <div class="card small">
     <div class="card-image waves-effect waves-block waves-light">
         <!-- have default image display if no img url is provided by user -->
@@ -44,7 +46,7 @@
     </div>
 </div>
 
-
+{% endif %}
 {% endfor %}
 
 {% else %}
