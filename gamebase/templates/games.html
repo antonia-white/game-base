@@ -19,8 +19,10 @@
         <!-- Only display games that match with the user id -->
         {% if game.user_id == session["user"] %}
 
-            <!-- Add a value to the list -->
-            {{ list.append (1) }}
+            <!-- Add a value to the list, jinja prints so hide this, if no games meet criteria nothing is in list - line 67 -->
+            <div class="hide">
+            {{ list.append ("1") }}
+            </div>
 
                 <div class="card small">
                     <div class="card-image waves-effect waves-block waves-light">
