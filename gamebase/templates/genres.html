@@ -12,7 +12,7 @@
 
 {% for genre in genres %}
 <ul>
-    <li>
+    <li class="genre-list">
         <h4>{{ genre.genre_name }}
             <a href="{{ url_for('edit_genre', genre_id=genre.id) }}" class="waves-effect waves-green btn-flat">
                 <span class="material-symbols-outlined">Edit</span>
@@ -53,12 +53,15 @@
                 <p>Genre: {{ genre.genre_name }}</p>
                 {% endif %}
                 {% endfor %}
+                <p>Console: {{ game.console }}</p>
                 <p>Release date: {{ game.release_date }}</p>
                 <p>Singleplayer: {{ game.is_singleplayer }}</p>
             </div>
         </div>
+
         {% endif %}
         {% endfor %}
+        <br>
     </li>
 </ul>
 
@@ -68,6 +71,7 @@
 <h3 class="red-text text-darken-4 center-align">Nothing to see here...</h3>
 {% endif %}
 
-<p><small>Current genre list, please <a href="https://github.com/antonia-white/game-base/issues">contact the administrator</a> for alterations or additions</small></p>
+<p><small>Current genre list, please <a href="https://github.com/antonia-white/game-base/issues">contact the
+            administrator</a> for alterations or additions</small></p>
 
 {% endblock %}
