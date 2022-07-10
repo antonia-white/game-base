@@ -275,7 +275,10 @@ def register():
         db.session.commit()
 
         # put the new user into 'session' cookie
-        session["user"] = request.form.get("email").lower()
+        existing_user = User.query.filter(User.email == \
+                                           request.form.get("email").lower()).all()
+        session["user"] = existing_user[0].id
+
         flash("Registration Successful!")
         return redirect(url_for("get_games", email=session["user"]))
 
