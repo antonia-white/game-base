@@ -16,6 +16,9 @@
 .card{
     position: relative;
     width: 30%;
+    float: left;
+    margin-right: 2vw;
+    margin-bottom: 2vh;
 }
 
 /* Make footer sticky */
@@ -28,3 +31,11 @@ body {
   main {
     flex: 1 0 auto;
   }
+
+  /* Genre list */
+  .genre-list {
+    float:left;
+    position:static;
+    width: 100%;
+  }
+
