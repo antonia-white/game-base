@@ -128,16 +128,16 @@ def add_console():
 
 
 # TODO: make so that only admin can edit a console
-@app.route("/edit_console/<_id>", methods=["GET", "POST"])
-def edit_console(_id):
+@app.route("/edit_console/<console_id>", methods=["GET", "POST"])
+def edit_console(console_id):
     
-    console = mongo.db.consoles.find_one({"_id": ObjectId(_id)})
+    console = mongo.db.consoles.find_one({"_id": ObjectId(console_id)})
 
     if request.method == "POST":
         submit = {
             "console_name": request.form.get("console_name")
         }
-        mongo.db.consoles.update_one({"_id": ObjectId(_id)}, submit)
+        mongo.db.consoles.replace_one({"_id": ObjectId(console_id)}, submit)
         return redirect(url_for("get_consoles"))
         flash(f"{console['console_name']} Successfully Updated")
 
@@ -187,8 +187,7 @@ def edit_genre(genre_id):
     
     genre = Genre.query.get_or_404(genre_id)
     if request.method == "POST":
-        # TODO: - it should migrate all user's games with said genre to the new genre name
-        genre.genre_name = request.form.get("genre_name")
+        genre.genre_name = request.form.get("genre-name")
         db.session.commit()
         return redirect(url_for("get_genres"))
     return render_template("edit_genre.html", genre=genre)
