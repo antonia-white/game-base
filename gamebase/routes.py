@@ -111,9 +111,12 @@ def get_consoles():
     return render_template("consoles.html", consoles=consoles)
 
 
-# TODO: make so that only admin can add a console
 @app.route("/add_console", methods=["GET", "POST"])
 def add_console():
+
+    if session["user"] != User.query.filter(User.email == "admin@admin.com").first().id:
+        flash("You must be admin to add a console.")
+        return redirect(url_for("get_games"))
 
     if request.method == "POST":
         console = {
@@ -127,9 +130,12 @@ def add_console():
     return render_template("add_console.html", genres=genres)
 
 
-# TODO: make so that only admin can edit a console
 @app.route("/edit_console/<console_id>", methods=["GET", "POST"])
 def edit_console(console_id):
+
+    if session["user"] != User.query.filter(User.email == "admin@admin.com").first().id:
+        flash("You must be admin to edit a console.")
+        return redirect(url_for("get_games"))
     
     console = mongo.db.consoles.find_one({"_id": ObjectId(console_id)})
 
@@ -144,9 +150,12 @@ def edit_console(console_id):
     return render_template("edit_console.html", console=console)
 
 
-# TODO: make so that only admin can delete a console
 @app.route("/delete_console/<_id>")
 def delete_console(_id):
+
+    if session["user"] != User.query.filter(User.email == "admin@admin.com").first().id:
+        flash("You must be admin to delete a console.")
+        return redirect(url_for("get_games"))
 
     console = mongo.db.consoles.find_one({"_id": ObjectId(_id)})
 
@@ -167,9 +176,12 @@ def get_genres():
     return render_template("genres.html", genres=genres, games=games)
 
 
-# TODO: make so that only admin can add a genre
 @app.route("/add_genre", methods=["GET", "POST"])
 def add_genre():
+
+    if session["user"] != User.query.filter(User.email == "admin@admin.com").first().id:
+        flash("You must be admin to add a genre.")
+        return redirect(url_for("get_games"))
 
     if request.method == "POST":
         genre = Genre(
@@ -181,9 +193,12 @@ def add_genre():
     return render_template("add_genre.html")
 
 
-# TODO: make so that only admin can edit a genre
 @app.route("/edit_genre/<int:genre_id>", methods=["GET", "POST"])
 def edit_genre(genre_id):
+
+    if session["user"] != User.query.filter(User.email == "admin@admin.com").first().id:
+        flash("You must be admin to edit a genre.")
+        return redirect(url_for("get_games"))
     
     genre = Genre.query.get_or_404(genre_id)
     if request.method == "POST":
@@ -195,7 +210,11 @@ def edit_genre(genre_id):
 
 @app.route("/delete_genre/<int:genre_id>")
 def delete_genre(genre_id):
-    # TODO: make so that only admin can delete a genre
+
+    if session["user"] != User.query.filter(User.email == "admin@admin.com").first().id:
+        flash("You must be admin to delete a genre.")
+        return redirect(url_for("get_games"))
+
     # TODO: - are you sure you want to delete this genre {{ genre.genre_name }} and all user's associated games? y/n
     genre = Genre.query.get_or_404(genre_id)
     db.session.delete(genre)
