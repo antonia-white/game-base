@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3>Your Consoles</h3>
+<h3>Consoles</h3>
 
 <p class="center-align">
     <a href="{{ url_for('add_console') }}" class="btn-large"><span class="material-symbols-outlined">Add</span>
@@ -26,5 +26,7 @@
 {% else %}
 <h3 class="red-text text-darken-4 center-align">No consoles found. Please add consoles.</h3>
 {% endif %}
+
+<p><small>Current console list, please <a href="https://github.com/antonia-white/game-base/issues">contact the administrator</a> for alterations or additions</small></p>
 
 {% endblock %}
