@@ -159,7 +159,7 @@ def delete_console(_id):
 
     console = mongo.db.consoles.find_one({"_id": ObjectId(_id)})
 
-    # TODO: alert - are you sure you want to delete this console?
+    # TODO: alert - are you sure you want to delete this console?   flash, Markup?
     mongo.db.consoles.delete_one({"_id": ObjectId(_id)})
     flash("Console Successfully Deleted")
     return redirect(url_for("get_consoles"))
@@ -217,6 +217,7 @@ def delete_genre(genre_id):
 
     # TODO: - are you sure you want to delete this genre {{ genre.genre_name }} and all user's associated games? y/n
     genre = Genre.query.get_or_404(genre_id)
+
     db.session.delete(genre)
     db.session.commit()
     # mongo.db.consoles.delete_many({"genre_id": str(genre_id)})
