@@ -116,7 +116,7 @@ def add_console():
 
     if session["user"] != User.query.filter(User.email == "admin@admin.com").first().id:
         flash("You must be admin to add a console.")
-        return redirect(url_for("get_games"))
+        return redirect(url_for("get_consoles"))
 
     if request.method == "POST":
         console = {
@@ -135,7 +135,7 @@ def edit_console(console_id):
 
     if session["user"] != User.query.filter(User.email == "admin@admin.com").first().id:
         flash("You must be admin to edit a console.")
-        return redirect(url_for("get_games"))
+        return redirect(url_for("get_consoles"))
     
     console = mongo.db.consoles.find_one({"_id": ObjectId(console_id)})
 
@@ -155,7 +155,7 @@ def delete_console(_id):
 
     if session["user"] != User.query.filter(User.email == "admin@admin.com").first().id:
         flash("You must be admin to delete a console.")
-        return redirect(url_for("get_games"))
+        return redirect(url_for("get_consoles"))
 
     console = mongo.db.consoles.find_one({"_id": ObjectId(_id)})
 
@@ -181,7 +181,7 @@ def add_genre():
 
     if session["user"] != User.query.filter(User.email == "admin@admin.com").first().id:
         flash("You must be admin to add a genre.")
-        return redirect(url_for("get_games"))
+        return redirect(url_for("get_genres"))
 
     if request.method == "POST":
         genre = Genre(
@@ -198,7 +198,7 @@ def edit_genre(genre_id):
 
     if session["user"] != User.query.filter(User.email == "admin@admin.com").first().id:
         flash("You must be admin to edit a genre.")
-        return redirect(url_for("get_games"))
+        return redirect(url_for("get_genres"))
     
     genre = Genre.query.get_or_404(genre_id)
     if request.method == "POST":
@@ -213,7 +213,7 @@ def delete_genre(genre_id):
 
     if session["user"] != User.query.filter(User.email == "admin@admin.com").first().id:
         flash("You must be admin to delete a genre.")
-        return redirect(url_for("get_games"))
+        return redirect(url_for("get_genres"))
 
     # TODO: - are you sure you want to delete this genre {{ genre.genre_name }} and all user's associated games? y/n
     genre = Genre.query.get_or_404(genre_id)
