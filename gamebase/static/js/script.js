@@ -1,3 +1,5 @@
+/* jshint esversion: 11 */
+
 /*
     jQuery for MaterializeCSS initialization
 */
@@ -14,4 +16,17 @@ document.addEventListener("DOMContentLoaded", function() {
     // collapsible initializataion
     let collapsibles = document.querySelectorAll(".collapsible");
     M.Collapsible.init(collapsibles);
+
+    // datepicker initialization
+    let datepickers = document.querySelectorAll(".datepicker");
+    const d = new Date();
+    let year = d.getFullYear()
+
+    M.Datepicker.init(datepickers, {
+        selectMonths: true,
+        selectYears: true,
+        yearRange: [1970, year+5],
+        close: "Ok",
+        closeOnSelect: false,
+    });
 })
