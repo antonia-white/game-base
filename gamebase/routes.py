@@ -28,8 +28,8 @@ def add_game():
     genres = list(Genre.query.order_by(Genre.genre_name).all())
     consoles = list(mongo.db.consoles.find())
     if request.method == "POST":
-        user = User.query.filter(User.id == \
-            session['user']).first()
+        user = User.query.filter(
+            User.id == session['user']).first()
         game = Game(
             title=request.form.get("title"),
             developer=request.form.get("developer"),
@@ -65,8 +65,8 @@ def edit_game(game_id):
     consoles = list(mongo.db.consoles.find())
     genres = list(Genre.query.order_by(Genre.genre_name).all())
     game = Game.query.get_or_404(game_id)
-    user = User.query.filter(User.id == \
-            session['user']).first()
+    user = User.query.filter(
+        User.id == session['user']).first()
     if request.method == "POST":
         game.title=request.form.get("title")
         game.developer=request.form.get("developer")
@@ -229,8 +229,8 @@ def delete_genre(genre_id):
 def login():
     if request.method == "POST":
         # check if email exists in db
-        existing_user = User.query.filter(User.email == \
-                                           request.form.get("email").lower()).all()
+        existing_user = User.query.filter(
+            User.email == request.form.get("email").lower()).all()
 
         if existing_user:
             # ensure hashed password matches user input
@@ -257,8 +257,8 @@ def login():
 def register():
     if request.method == "POST":
         # check if username already exists in db
-        existing_user = User.query.filter(User.email == \
-                                           request.form.get("email").lower()).all()
+        existing_user = User.query.filter(
+            User.email == request.form.get("email").lower()).all()
         
         if existing_user:
             flash("This email is already connected to an account")
@@ -275,8 +275,8 @@ def register():
         db.session.commit()
 
         # put the new user into 'session' cookie
-        existing_user = User.query.filter(User.email == \
-                                           request.form.get("email").lower()).all()
+        existing_user = User.query.filter(
+            User.email == request.form.get("email").lower()).all()
         session["user"] = existing_user[0].id
 
         flash("Registration Successful!")
