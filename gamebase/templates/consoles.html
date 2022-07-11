@@ -16,9 +16,14 @@
             <a href="{{ url_for('edit_console', console_id=console._id) }}" class="waves-effect waves-green btn-flat">
                 <span class="material-symbols-outlined">Edit</span>
             </a>
-            <a href="{{ url_for('delete_console', _id=console._id) }}"
+            <!-- <a href="{{ url_for('delete_console', _id=console._id) }}"
                 class="waves-effect waves-red btn-flat"><span class="material-symbols-outlined">Delete</span>
+            </a> -->
+            <!-- Selection of delete game triggers modal -->
+            <a href="#modal-{{ console._id }}" class="waves-effect waves-red btn-flat modal-trigger"><span class="material-symbols-outlined">Delete</span>
             </a>
+        <!-- inject the modals partials-template -->
+        {% include "partials/modals.html" %}
         </p>
     </li>
     {% endfor %}
