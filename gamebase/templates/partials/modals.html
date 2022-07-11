@@ -1,45 +1,45 @@
 <!-- modal: confirm game deletion -->
 {% if game %}
-<div id="modal-{{ game._id }}" class="modal black white-text">
+<div id="modal-{{ game.id }}" class="modal black white-text">
     <div class="modal-content">
         <h4>Are you sure you want to delete this game?</h4>
         <p>This action cannot be undone.</p>
     </div>
     <div class="modal-footer black">
         <a class="btn red modal-close">No</a>
-        <a href="{{ url_for('delete_game', game_id=game._id) }}" class="btn green accent-4">Yes</a>
+        <a href="{{ url_for('delete_game', game_id=game.id) }}" class="btn green accent-4">Yes</a>
     </div>
 </div>
 {% endif %}
 
 <!-- modal: confirm genre deletion -->
 {% if genre %}
-<div id="modal-{{ genre._id }}" class="modal black white-text">
+<div id="modal-{{ genre.id }}" class="modal black white-text">
     <div class="modal-content">
-        <h4>Are you sure you want to delete the {{ genre.name }} genre?</h4>
-        <p>This will delete all games associated to the genre {{ genre.name }} for <strong>ALL</strong> users.</p>
+        <h4>Are you sure you want to delete the {{ genre.genre_name }} genre?</h4>
+        <p>This will delete all games associated to the genre '{{ genre.genre_name }}' for <strong>ALL</strong> users.</p>
         <br>
         <p><strong>This action cannot be undone.</strong></p>
     </div>
     <div class="modal-footer black">
         <a class="btn red modal-close">No</a>
-        <a href="{{ url_for('delete_genre', genre_id=genre._id) }}" class="btn green accent-4">Yes</a>
+        <a href="{{ url_for('delete_genre', genre_id=genre.id) }}" class="btn green accent-4">Yes</a>
     </div>
 </div>
 {% endif %}
 
-<!-- modal: confirm genre deletion -->
+<!-- modal: confirm console deletion -->
 {% if console %}
 <div id="modal-{{ console._id }}" class="modal black white-text">
     <div class="modal-content">
-        <h4>Are you sure you want to delete the {{ console.name }} console?</h4>
-        <p>This will prevent users adding {{ console.name }} games in the future.</p>
+        <h4>Are you sure you want to delete the {{ console.console_name }} console?</h4>
+        <p>This will prevent users adding {{ console.console_name }} games in the future.</p>
         <br>
         <p><strong>This action cannot be undone.</strong></p>
     </div>
     <div class="modal-footer black">
         <a class="btn red modal-close">No</a>
-        <a href="{{ url_for('delete_console', console_id=console._id) }}" class="btn green accent-4">Yes</a>
+        <a href="{{ url_for('delete_console', _id=console._id) }}" class="btn green accent-4">Yes</a>
     </div>
 </div>
 {% endif %}
