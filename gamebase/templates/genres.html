@@ -3,10 +3,12 @@
 
 <h3>Genres</h3>
 
+{% if session['user'] == admin_id %}
 <p class="center-align">
     <a href="{{ url_for('add_genre') }}" class="btn-large"><span class="material-symbols-outlined">Add</span>
         Add genre</a>
 </p>
+{% endif %}
 
 {% if genres|length > 0 %}
 
@@ -14,6 +16,7 @@
 <ul>
     <li class="genre-list">
         <h4>{{ genre.genre_name }}
+            {% if session['user'] == admin_id %}
             <a href="{{ url_for('edit_genre', genre_id=genre.id) }}" class="waves-effect waves-green btn-flat">
                 <span class="material-symbols-outlined">Edit</span>
             </a>
@@ -22,6 +25,7 @@
                 </a>
             <!-- inject the modals partials-template -->
             {% include "partials/modals.html" %}
+            {% endif %}
         </h4>
 
         {% for game in games %}
