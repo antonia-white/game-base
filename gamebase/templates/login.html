@@ -1,4 +1,12 @@
 {% extends "base.html" %}
+
+<!-- Hides logout button -->
+{% block styles %}
+    <style>
+        .logout-btn {display: none;}
+    </style>
+{% endblock %}
+
 {% block content %}
 
 <h3>Login</h3>
