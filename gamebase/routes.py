@@ -28,8 +28,10 @@ def add_game():
     genres = list(Genre.query.order_by(Genre.genre_name).all())
     consoles = list(mongo.db.consoles.find())
     if request.method == "POST":
+        # print(request.form.getlist('console'))
         user = User.query.filter(
             User.id == session['user']).first()
+        # print(f'console:  {request.form.get("console")}')
         game = Game(
             title=request.form.get("title"),
             developer=request.form.get("developer"),
@@ -38,11 +40,12 @@ def add_game():
             image_url=request.form.get("image_url"),
             genre_id=request.form.get("genre"),
             user_id=user.id,
-            console=request.form.get("console")
+            console=request.form.getlist('console')
         )
 
         db.session.add(game)
         db.session.commit()
+        print(game.console)
         return redirect(url_for("get_games"))
     return render_template("add_game.html", genres=genres, consoles=consoles)
 
@@ -51,7 +54,7 @@ def add_game():
 @app.route("/edit_game/<int:game_id>", methods=["GET", "POST"])
 def edit_game(game_id):
     # A user needs to be logged in to edit a game
-    print(str(session["user"]))
+    #print(str(session["user"]))
     if "user" not in session: 
         flash("You need to be logged in to edit a game.")
         return redirect(url_for("login"))
