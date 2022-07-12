@@ -107,8 +107,10 @@ def get_consoles():
     if "user" not in session: 
         flash("You need to be logged in to view consoles")
         return redirect(url_for("login"))
+
+    admin_id = User.query.filter(User.email == "admin@admin.com").first().id
     consoles = list(mongo.db.consoles.find())
-    return render_template("consoles.html", consoles=consoles)
+    return render_template("consoles.html", consoles=consoles, admin_id=admin_id)
 
 
 @app.route("/add_console", methods=["GET", "POST"])
@@ -171,9 +173,12 @@ def get_genres():
         flash("You need to be logged in to view genres")
         return redirect(url_for("login"))
 
+    admin_id = User.query.filter(User.email == "admin@admin.com").first().id
+    print("This is the admin_id: " + str(User.query.filter(User.email == "admin@admin.com").first().id))
+    print("This is the session user: " + str(session['user']))
     genres = list(Genre.query.order_by(Genre.genre_name).all())
     games = list(Game.query.all())
-    return render_template("genres.html", genres=genres, games=games)
+    return render_template("genres.html", genres=genres, games=games, admin_id=admin_id)
 
 
 @app.route("/add_genre", methods=["GET", "POST"])
