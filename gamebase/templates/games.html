@@ -4,7 +4,7 @@
 <h3> Your Games </h3>
 
 <p class="center-align">
-    <a href="{{ url_for('add_game') }}" class="btn-large"><span class="material-symbols-outlined">Add</span>
+    <a href="{{ url_for('add_game') }}" class="btn-large dark-blue"><span class="material-symbols-outlined">Add</span>
         Add games</a>
 </p>
 
@@ -71,13 +71,13 @@
 
 <!-- If there is less than 1 value in list, display -->
 {% if 1 > list|length %}
-<h3 class="red-text text-darken-4 center-align">Nothing to see here...</h3>
+<h3 class="red-text text-lighten-3 center-align">Nothing to see here...</h3>
 {% endif %}
 
 <!-- Display if there's no games in the database -->
 {% else %}
 
-<h3 class="red-text text-darken-4 center-align">Nothing to see here...</h3>
+<h3 class="red-text text-lighten-3 center-align">Nothing to see here...</h3>
 
 {% endif %}
 
