@@ -17,9 +17,12 @@
     <title>Game Base</title>
 </head>
 
+<!-- Genres dropdown structure -->
+
+
 <!-- Top navbar -->
 <nav>
-    <div class="nav-wrapper">
+    <div class="nav-wrapper dark-blue z-depth-4">
         <a href="{{ url_for('get_games') }}" class="brand-logo">Logo</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-symbols-outlined">menu</i></a>
         <ul class="right hide-on-med-and-down">
@@ -32,7 +35,7 @@
 </nav>
 
 <!-- Mobile navbar -->
-<ul class="sidenav" id="mobile-demo">
+<ul class="sidenav dark-blue z-depth-4" id="mobile-demo">
     <li><a href="{{ url_for('get_games') }}">Games</a></li>
     <li><a href="{{ url_for('get_genres') }}">Genres</a></li>
     <li><a href="{{ url_for('get_consoles') }}">Consoles</a></li>
@@ -59,7 +62,7 @@
         {% endblock %}
     </main>
 
-    <footer class="page-footer">
+    <footer class="page-footer dark-blue z-depth-4">
         <div class="container">
             <div class="row">
                 <div class="col">
