@@ -94,4 +94,38 @@ body {
     height: 52px;
   }
  }
- 
+
+ @media screen and (max-width: 938px){
+  .card{
+    margin-left: 20vw;
+  }
+  #add-game-btn{
+    float:right;
+    position: sticky;
+    display: block;
+    margin-top: -60px;
+    margin-left: 60%;
+    z-index: 10;
+  }
+ }
+
+ @media screen and (max-width: 560px){
+  .card{
+    margin-left: 2vw;
+  }
+}
+
+/* Small screens */
+@media screen and (max-width: 560px){
+  .container{
+    width: 100%;
+  }
+  #add-game-btn{
+    width: 80px;
+    margin-right: 10px;
+    overflow: hidden;
+  }
+  .card{
+    width: 95%;
+  }
+}
