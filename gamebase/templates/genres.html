@@ -6,7 +6,7 @@
 <!-- Hide admin functionality for non-admin users -->
 {% if session['user'] == admin_id %}
 <p class="center-align">
-    <a href="{{ url_for('add_genre') }}" class="btn-large"><span class="material-symbols-outlined">Add</span>
+    <a href="{{ url_for('add_genre') }}" class="btn-large dark-blue"><span class="material-symbols-outlined">Add</span>
         Add genre</a>
 </p>
 {% endif %}
