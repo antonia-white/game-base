@@ -60,4 +60,38 @@ body {
     background-color: #092a3e;
   }
 
+  .brand-logo{
+    font-family: 'Archivo Narrow', sans-serif;
+  }
 
+  #logo{
+    width:auto;
+    height:60px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+#logo-text {
+  display: inline-block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  position: absolute;
+  width:300px;
+}
+
+
+/* Media queries */
+@media only screen and (min-width: 993px) {
+  .container {
+   width:80%;
+  }
+ }
+
+
+ /* Adjust logo on small screens */
+ @media screen and (max-width: 601px) {
+  #logo{
+    height: 52px;
+  }
+ }
+ 
