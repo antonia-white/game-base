@@ -13,30 +13,30 @@
 
 <div class="row">
     <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
-        <div class="card-panel">
+        <div id="register-card" class="card-panel">
             <!-- First Name -->
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="fname" name="fname" type="text" class="validate" required>
+                    <input id="fname" name="fname" type="text" class="validate teal-text text-lighten-5" required>
                     <label for="fname">First Name</label>
                 </div>
                 <!-- Last Name -->
                 <div class="input-field col s6">
-                    <input id="lname" name="lname" type="text" class="validate">
+                    <input id="lname" name="lname" type="text" class="validate teal-text text-lighten-5">
                     <label for="lname">Last Name</label>
                 </div>
             </div>
             <!-- Email -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="email" name="email" type="email" class="validate" required>
+                    <input id="email" name="email" type="email" class="validate teal-text text-lighten-5" required>
                     <label for="email"><span class="material-symbols-outlined">Mail</span>Email</label>
                 </div>
             </div>
             <!-- Password -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="password" name="password" type="password" class="validate" required>
+                    <input id="password" name="password" type="password" class="validate teal-text text-lighten-5" required>
                     <label for="password"><span class="material-symbols-outlined">Lock</span>Password</label>
                 </div>
             </div>
