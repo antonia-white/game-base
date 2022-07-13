@@ -6,7 +6,7 @@
 <!-- Hide admin functionality for non-admin users -->
 {% if session['user'] == admin_id %}
 <p class="center-align">
-    <a href="{{ url_for('add_console') }}" class="btn-large"><span class="material-symbols-outlined">Add</span>
+    <a href="{{ url_for('add_console') }}" class="btn-large dark-blue"><span class="material-symbols-outlined">Add</span>
         Add console</a>
 </p>
 {% endif %}
@@ -15,7 +15,7 @@
 <ul>
     {% for console in consoles %}
     <li>
-        <p>{{ console.console_name }}
+        <h5>{{ console.console_name }}
             <!-- Hide admin functionality for non-admin users -->
             {% if session['user'] == admin_id %}
             <a href="{{ url_for('edit_console', console_id=console._id) }}" class="waves-effect waves-green btn-flat">
@@ -27,7 +27,7 @@
         <!-- inject the modals partials-template -->
         {% include "partials/modals.html" %}
         {% endif %}
-        </p>
+        </h5>
     </li>
     {% endfor %}
 </ul>
