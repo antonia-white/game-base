@@ -15,10 +15,11 @@
 
 .card{
     position: relative;
-    width: 30%;
+    width: 380px;
     float: left;
     margin-right: 2vw;
     margin-bottom: 2vh;
+    background-color: #e0f2f1;
 }
 
 /* Make footer sticky */
@@ -42,3 +43,21 @@ body {
   .hide {
     display: none;
   }
+
+  body {
+    background-image: url("https://images.unsplash.com/photo-1578598444322-6533486d4cdf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+    background-color: #080f27;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #e0f2f1;
+  }
+
+  .card-panel{
+    background-color: #061a27;
+  }
+
+  .dark-blue{
+    background-color: #092a3e;
+  }
+
+
