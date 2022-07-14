@@ -8,14 +8,14 @@
         <!-- Title -->
         <div class="row">
             <div class="input-field col s12">
-                <input id="title" name="title" value="{{ game.title.title() }}" type="text" class="validate" maxlength="50" required>
+                <input id="title" name="title" value="{{ game.title.title() }}" type="text" class="validate teal-text text-lighten-5" maxlength="50" required>
                 <label for="title">Title</label>
             </div>
         </div>
         <!-- Developer -->
         <div class="row">
             <div class="input-field col s12">
-                <input id="developer" name="developer" value="{{ game.developer.capitalize() }}" type="text" maxlength="50" class="validate">
+                <input id="developer" name="developer" value="{{ game.developer.capitalize() }}" type="text" maxlength="50" class="validate teal-text text-lighten-5">
                 <label for="developer">Developer</label>
             </div>
         </div>
@@ -38,8 +38,7 @@
         <!-- Console -->
         <div class="row">
             <div class="input-field col s12">
-                <select id="console" name="console">
-                    <option value="" disabled selected>Choose the console</option>
+                <select multiple id="console" name="console">
                     {% for console in consoles %}
                             <option value="{{ console.console_name }}">{{ console.console_name }}</option>
                     {% endfor %}
@@ -50,7 +49,7 @@
         <!-- Release Date -->
         <div class="row">
             <div class="input-field col s12">
-                <input id="release_date" name="release_date" type="text" value="{{ game.release_date }}" class="validate datepicker">
+                <input id="release_date" name="release_date" type="text" value="{{ game.release_date }}" class="validate datepicker teal-text text-lighten-5">
                 <label for="release_date"><span class="material-symbols-outlined">Event</span>Release date</label>
             </div>
         </div>
@@ -71,7 +70,7 @@
         <!-- Image URL -->
         <div class="row">
             <div class="input-field col s12">
-                <input id="image_url" name="image_url" value="{{ game.image_url }}" type="url" class="validate">
+                <input id="image_url" name="image_url" value="{{ game.image_url }}" type="url" class="validate teal-text text-lighten-5">
                 <label for="image_url"><span class="material-symbols-outlined">Link</span>Image URL</label>
             </div>
         </div>
