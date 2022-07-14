@@ -138,7 +138,7 @@ body {
 /* Small screens */
 @media screen and (max-width: 560px){
   .container{
-    width: 100%;
+    width: 97%;
   }
   #add-game-btn{
     width: 80px;
