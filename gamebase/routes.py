@@ -28,10 +28,14 @@ def add_game():
     genres = list(Genre.query.order_by(Genre.genre_name).all())
     consoles = list(mongo.db.consoles.find())
     if request.method == "POST":
-        # print(request.form.getlist('console'))
+        # Manipulate console list
+        raw_console_list = request.form.getlist('console')
+        
+        console_list = raw_console_list.replace("{","")
+
         user = User.query.filter(
             User.id == session['user']).first()
-        # print(f'console:  {request.form.get("console")}')
+        
         game = Game(
             title=request.form.get("title"),
             developer=request.form.get("developer"),
@@ -54,7 +58,6 @@ def add_game():
 @app.route("/edit_game/<int:game_id>", methods=["GET", "POST"])
 def edit_game(game_id):
     # A user needs to be logged in to edit a game
-    #print(str(session["user"]))
     if "user" not in session: 
         flash("You need to be logged in to edit a game.")
         return redirect(url_for("login"))
@@ -163,8 +166,7 @@ def delete_console(_id):
         return redirect(url_for("get_consoles"))
 
     console = mongo.db.consoles.find_one({"_id": ObjectId(_id)})
-
-    # TODO: alert - are you sure you want to delete this console?   flash, Markup?
+    
     mongo.db.consoles.delete_one({"_id": ObjectId(_id)})
     flash("Console Successfully Deleted")
     return redirect(url_for("get_consoles"))
@@ -223,7 +225,6 @@ def delete_genre(genre_id):
         flash("You must be admin to delete a genre.")
         return redirect(url_for("get_genres"))
 
-    # TODO: - are you sure you want to delete this genre {{ genre.genre_name }} and all user's associated games? y/n
     genre = Genre.query.get_or_404(genre_id)
 
     db.session.delete(genre)
