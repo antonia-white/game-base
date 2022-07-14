@@ -84,6 +84,21 @@ body {
   color: #e0f2f1;
 }
 
+/* Fix colouring of dates in datepicker */
+.datepicker-day-button {
+  color: #080f27;
+  }
+
+
+/* Fix colouring of year dropdown in datepicker */
+.select-year > .select-dropdown{
+  color:#080f27;
+}
+
+/* Fix colouring of month dropdown in datepicker */
+.select-month > .select-dropdown{
+  color:#080f27;
+}
 
 /* Media queries */
 @media only screen and (min-width: 993px) {
