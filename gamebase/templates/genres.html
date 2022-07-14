@@ -23,8 +23,9 @@
                 <span class="material-symbols-outlined">Edit</span>
             </a>
             <!-- Selection of delete game triggers modal -->
-            <a href="#modal-{{ genre.id }}" class="waves-effect waves-red btn-flat modal-trigger"><span class="material-symbols-outlined">Delete</span>
-                </a>
+            <a href="#modal-{{ genre.id }}" class="waves-effect waves-red btn-flat modal-trigger"><span
+                    class="material-symbols-outlined">Delete</span>
+            </a>
             <!-- inject the modals partials-template -->
             {% include "partials/modals.html" %}
             {% endif %}
@@ -61,18 +62,20 @@
                     {% include "partials/modals.html" %}
                 </p>
             </div>
-            <div class="card-reveal">
+            <div class="card-reveal grey lighten-4">
                 <span class="card-title grey-text text-darken-4">{{ game.title.title() }}<i
                         class="material-symbols-outlined right">close</i></span>
-                <p>Developer: {{ game.developer.capitalize() }}</p>
-                {% for genre in genres %}
-                {% if game.genre_id == genre.id %}
-                <p>Genre: {{ genre.genre_name }}</p>
-                {% endif %}
-                {% endfor %}
-                <p>Console: {{ game.console }}</p>
-                <p>Release date: {{ game.release_date }}</p>
-                <p>Singleplayer: {{ game.is_singleplayer }}</p>
+                <div class="grey-text text-darken-4">
+                    <p>Developer: {{ game.developer.capitalize() }}</p>
+                    {% for genre in genres %}
+                    {% if game.genre_id == genre.id %}
+                    <p>Genre: {{ genre.genre_name }}</p>
+                    {% endif %}
+                    {% endfor %}
+                    <p>Console: {{ game.console }}</p>
+                    <p>Release date: {{ game.release_date }}</p>
+                    <p>Singleplayer: {{ game.is_singleplayer }}</p>
+                </div>
             </div>
         </div>
 
@@ -89,7 +92,8 @@
 <h3 class="red-text text-darken-4 center-align">Nothing to see here...</h3>
 {% endif %}
 
-<p><small>Current genre list, please <a href="https://github.com/antonia-white/game-base/issues" target="_blank">contact the
+<p><small>Current genre list, please <a href="https://github.com/antonia-white/game-base/issues" target="_blank">contact
+            the
             administrator</a> for alterations or additions</small></p>
 
 {% endblock %}

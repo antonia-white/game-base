@@ -51,18 +51,20 @@
             {% include "partials/modals.html" %}
         </p>
     </div>
-    <div class="card-reveal">
+    <div class="card-reveal grey lighten-4">
         <span class="card-title grey-text text-darken-4">{{ game.title.title() }}<i
                 class="material-symbols-outlined right">close</i></span>
-        <p>Developer: {{ game.developer.capitalize() }}</p>
-        {% for genre in genres %}
-        {% if game.genre_id == genre.id %}
-        <p>Genre: {{ genre.genre_name }}</p>
-        {% endif %}
-        {% endfor %}
-        <p>Console: {{ game.console }}</p>
-        <p>Release date: {{ game.release_date }}</p>
-        <p>Singleplayer: {{ game.is_singleplayer }}</p>
+        <div class="grey-text text-darken-4">
+            <p>Developer: {{ game.developer.capitalize() }}</p>
+            {% for genre in genres %}
+            {% if game.genre_id == genre.id %}
+            <p>Genre: {{ genre.genre_name }}</p>
+            {% endif %}
+            {% endfor %}
+            <p>Console: {{ game.console }}</p>
+            <p>Release date: {{ game.release_date }}</p>
+            <p>Singleplayer: {{ game.is_singleplayer }}</p>
+        </div>
     </div>
 </div>
 
