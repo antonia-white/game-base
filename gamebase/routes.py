@@ -29,9 +29,7 @@ def add_game():
     consoles = list(mongo.db.consoles.find())
     if request.method == "POST":
         # Manipulate console list
-        raw_console_list = request.form.getlist('console')
-        
-        console_list = raw_console_list.replace("{","")
+        console_list = request.form.getlist('console')
 
         user = User.query.filter(
             User.id == session['user']).first()
@@ -44,12 +42,11 @@ def add_game():
             image_url=request.form.get("image_url"),
             genre_id=request.form.get("genre"),
             user_id=user.id,
-            console=request.form.getlist('console')
+            console=', '.join(str(e) for e in console_list)
         )
 
         db.session.add(game)
         db.session.commit()
-        print(game.console)
         return redirect(url_for("get_games"))
     return render_template("add_game.html", genres=genres, consoles=consoles)
 
@@ -74,13 +71,16 @@ def edit_game(game_id):
     user = User.query.filter(
         User.id == session['user']).first()
     if request.method == "POST":
+        # Manipulate console list
+        console_list = request.form.getlist('console')
+
         game.title=request.form.get("title")
         game.developer=request.form.get("developer")
         game.release_date=request.form.get("release_date")
         game.is_singleplayer=bool(True if request.form.get("is_singleplayer") else False)
         game.image_url=request.form.get("image_url")
         game.genre_id=request.form.get("genre")
-        game.console=request.form.get("console")
+        game.console=', '.join(str(e) for e in console_list)
         game.user_id=user.id
         db.session.commit()
         return redirect(url_for("get_games"))
