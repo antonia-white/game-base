@@ -39,6 +39,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <select multiple id="console" name="console">
+                    <option value="" disabled>Selects console(s)</option>
                     {% for console in consoles %}
                             <option value="{{ console.console_name }}">{{ console.console_name }}</option>
                     {% endfor %}
