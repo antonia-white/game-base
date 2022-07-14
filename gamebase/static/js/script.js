@@ -4,7 +4,7 @@
     jQuery for MaterializeCSS initialization
 */
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // sidenav initialization
     let sidenav = document.querySelectorAll(".sidenav");
     M.Sidenav.init(sidenav);
@@ -22,10 +22,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const d = new Date();
     let year = d.getFullYear()
 
+
     M.Datepicker.init(datepickers, {
         selectMonths: true,
         selectYears: true,
-        yearRange: [1970, year+5],
+        yearRange: [1970, year + 5],
         close: "Ok",
         closeOnSelect: false,
     });
