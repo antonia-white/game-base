@@ -31,14 +31,20 @@
         </h4>
 
         {% for game in games %}
+        <!-- Only display games within said genre -->
         {% if game.genre_id == genre.id %}
-        <div class="card small">
+        <!-- Only display games that match with the user id -->
+        {% if game.user_id == session["user"] %}
+        <div class="card small hoverable">
             <div class="card-image waves-effect waves-block waves-light">
                 <!-- have default image display if no img url is provided by user -->
                 {% if game.image_url == "" %}
-                <img class="activator" src="{{ url_for('static', filename = 'media/' +'no-image.jpg') }}">
+                <img class="activator" alt="no image displayed"
+                    src="{{ url_for('static', filename = 'media/' +'no-image.jpg') }}">
                 {% else %}
-                <img class="activator" src="{{ game.image_url }}">
+                <img src="{{ game.image_url }}" alt="{{ game.title }} image" class="activator"
+                    onError="this.onerror=null;this.src='{{ url_for('static', filename='media/' +'no-image.jpg') }}';">
+                <!-- <img class="activator" alt="{{ game.title }} image" src="{{ game.image_url }}"> -->
                 {% endif %}
             </div>
             <div class="card-content">
@@ -47,9 +53,12 @@
                 <p><a href="{{ url_for('edit_game', game_id=game.id) }}" class="btn green accent-4">
                         <span class="material-symbols-outlined">Edit</span>
                         Edit</a>
-                    <a href="{{ url_for('delete_game', game_id=game.id) }}" class="btn red"><span
+                    <!-- Selection of delete game triggers modal -->
+                    <a href="#modal-{{ game.id }}" class="btn red modal-trigger"><span
                             class="material-symbols-outlined">Delete</span>
                         Delete</a>
+                    <!-- inject the modals partials-template -->
+                    {% include "partials/modals.html" %}
                 </p>
             </div>
             <div class="card-reveal">
@@ -67,6 +76,7 @@
             </div>
         </div>
 
+        {% endif %}
         {% endif %}
         {% endfor %}
         <br>
