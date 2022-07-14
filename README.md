@@ -81,7 +81,8 @@ As a user of the Game Base website, I want to:
 
 ### Features Left to Implement 
 
-- 
+- Have consoles input field autofill with stored values when trying to edit a game 
+  - With additional time I would implement this feature by migrating the consoles database to a relational DBMS or relate MongoDB ObjectID's by converting the ObjectId to a time stamp, as seen [here](https://steveridout.com/mongo-object-time/)
 
 ***
 
