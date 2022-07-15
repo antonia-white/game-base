@@ -35,7 +35,7 @@ As a user of the Game Base website, I want to:
 
 - Google Fonts
   Font styles were taken from the open source [Google Fonts](https://fonts.google.com/).
-  - The typography for ... is font-family [...](...). This font design is...
+  - The typography for the brand logo is font-family [Archivo Narrow](https://fonts.google.com/specimen/Archivo+Narrow?preview.text=Game%20Base&preview.text_type=custom#standard-styles). This font was originally designed for highlights and headlines. This family is reminiscent of late nineteenth century American typefaces. As such, it is eyecatching to the user.
 
 ***
 
