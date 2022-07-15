@@ -3,6 +3,7 @@ from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from gamebase import app, db, mongo
 from gamebase.models import Game, Genre, User
+from sqlalchemy import and_
 
 
 # GAMES - DB
@@ -45,6 +46,18 @@ def add_game():
             console=', '.join(str(e) for e in console_list)
         )
 
+        # check if game title already exists in db
+        existing_titles = Game.query.filter(
+            and_(
+                Game.title.like(request.form.get("title")),
+                Game.user_id == session["user"],
+            )).all()
+        
+        # repeat game
+        if existing_titles:
+            flash(f"You already have a game titled '{game.title}'")
+            return redirect(url_for("add_game"))
+
         db.session.add(game)
         db.session.commit()
         return redirect(url_for("get_games"))
@@ -82,6 +95,19 @@ def edit_game(game_id):
         game.genre_id=request.form.get("genre")
         game.console=', '.join(str(e) for e in console_list)
         game.user_id=user.id
+
+        # check if game title already exists in db
+        existing_titles = Game.query.filter(
+            and_(
+                Game.title.like(request.form.get("title")),
+                Game.user_id == session["user"],
+            )).all()
+        
+        # repeat game
+        if existing_titles:
+            flash(f"You already have a game titled '{game.title}'")
+            return redirect(url_for("add_game"))
+
         db.session.commit()
         return redirect(url_for("get_games"))
     return render_template("edit_game.html", game=game, genres=genres, consoles=consoles)
