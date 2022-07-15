@@ -3,7 +3,7 @@ from gamebase import db
 class Game(db.Model):
     # schema for the Game model
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(50), unique=True, nullable=True)
+    title = db.Column(db.String(50), nullable=True)
     developer = db.Column(db.String(50))
     release_date = db.Column(db.Date)
     is_singleplayer = db.Column(db.Boolean, default=True, nullable=False)
