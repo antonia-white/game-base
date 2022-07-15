@@ -26,7 +26,7 @@ As a user of the Game Base website, I want to:
 ## UX
 
 ### Colour Scheme
-- Description.
+- A calming blend of teal shades and rich blues. This gives a cool and clean look.
     >![colour palette](documentation/testing/color-palette.png)
 - No accessibility issues were returned when passing the colour scheme through the official [WebAIM](https://webaim.org/resources/contrastchecker/).
     >![webaim screenshot](documentation/testing/webaim-screenshot.png)
