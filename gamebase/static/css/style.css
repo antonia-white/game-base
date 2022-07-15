@@ -22,6 +22,10 @@
     background-color: #e0f2f1;
 }
 
+html{
+  font-family: 'Albert Sans', sans-serif;
+}
+
 /* Make footer sticky */
 body {
     display: flex;
