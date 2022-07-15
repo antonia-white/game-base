@@ -8,21 +8,24 @@
         <!-- Title -->
         <div class="row">
             <div class="input-field col s12">
-                <input id="title" name="title" type="text" class="validate teal-text text-lighten-5" maxlength="50" required>
+                <input id="title" name="title" type="text" class="validate teal-text text-lighten-5" maxlength="50"
+                    required>
                 <label for="title">Title</label>
             </div>
         </div>
         <!-- Developer -->
         <div class="row">
             <div class="input-field col s12">
-                <input id="developer" name="developer" type="text" maxlength="50" class="validate teal-text text-lighten-5">
+                <input id="developer" name="developer" type="text" maxlength="50"
+                    class="validate teal-text text-lighten-5">
                 <label for="developer">Developer</label>
             </div>
         </div>
         <!-- Genre -->
         <div class="row">
             <div class="input-field col s12">
-                <select id="genre" name="genre">
+                <span id="required-genre" class="right-align">*required</span>
+                <select id="genre" name="genre" required>
                     <option value="" disabled selected>Choose the genre</option>
                     {% for genre in genres %}
                     <option value="{{ genre.id }}">{{ genre.genre_name }}</option>
@@ -34,7 +37,7 @@
         <!-- Console -->
         <div class="row">
             <div class="input-field col s12">
-                <select multiple id="console" name="console">
+                <select multiple id="console" name="console" required>
                     <option value="" disabled>Selects console(s)</option>
                     {% for console in consoles %}
                     <option value="{{ console.console_name }}">{{ console.console_name }}</option>
@@ -46,7 +49,8 @@
         <!-- Release Date -->
         <div class="row">
             <div class="input-field col s12">
-                <input id="release_date" name="release_date" type="text" class="validate datepicker teal-text text-lighten-5" required>
+                <input id="release_date" name="release_date" type="text"
+                    class="validate datepicker teal-text text-lighten-5" required>
                 <label for="release_date"><span class="material-symbols-outlined">Event</span>Release date</label>
             </div>
         </div>
@@ -70,7 +74,7 @@
         <!-- submit button -->
         <div class="row">
             <div class="col s12 center-align">
-                <button type="submit" class="btn-large">
+                <button onclick="requiredGenre()" type="submit" class="btn-large">
                     Add Game
                 </button>
             </div>
