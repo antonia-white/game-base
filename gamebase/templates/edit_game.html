@@ -8,28 +8,31 @@
         <!-- Title -->
         <div class="row">
             <div class="input-field col s12">
-                <input id="title" name="title" value="{{ game.title.title() }}" type="text" class="validate teal-text text-lighten-5" maxlength="50" required>
+                <input id="title" name="title" value="{{ game.title.title() }}" type="text"
+                    class="validate teal-text text-lighten-5" maxlength="50" required>
                 <label for="title">Title</label>
             </div>
         </div>
         <!-- Developer -->
         <div class="row">
             <div class="input-field col s12">
-                <input id="developer" name="developer" value="{{ game.developer.capitalize() }}" type="text" maxlength="50" class="validate teal-text text-lighten-5">
+                <input id="developer" name="developer" value="{{ game.developer.capitalize() }}" type="text"
+                    maxlength="50" class="validate teal-text text-lighten-5">
                 <label for="developer">Developer</label>
             </div>
         </div>
         <!-- Genre -->
         <div class="row">
             <div class="input-field col s12">
-                <select id="genre" name="genre">
+                <span id="required-genre" class="right-align">*required</span>
+                <select id="genre" name="genre" required>
                     <option value="" disabled selected>Choose the genre</option>
                     {% for genre in genres %}
-                        {% if genre.id == game.genre_id %}
-                            <option value="{{ genre.id }}" selected>{{ genre.genre_name }}</option>
-                        {% else %}
-                            <option value="{{ genre.id }}">{{ genre.genre_name }}</option>
-                        {% endif %}
+                    {% if genre.id == game.genre_id %}
+                    <option value="{{ genre.id }}" selected>{{ genre.genre_name }}</option>
+                    {% else %}
+                    <option value="{{ genre.id }}">{{ genre.genre_name }}</option>
+                    {% endif %}
                     {% endfor %}
                 </select>
                 <label>Genre</label>
@@ -41,7 +44,7 @@
                 <select multiple id="console" name="console">
                     <option value="" disabled>Selects console(s)</option>
                     {% for console in consoles %}
-                            <option value="{{ console.console_name }}">{{ console.console_name }}</option>
+                    <option value="{{ console.console_name }}">{{ console.console_name }}</option>
                     {% endfor %}
                 </select>
                 <label>Console</label>
@@ -50,7 +53,8 @@
         <!-- Release Date -->
         <div class="row">
             <div class="input-field col s12">
-                <input id="release_date" name="release_date" type="text" value="{{ game.release_date }}" class="validate datepicker teal-text text-lighten-5" required>
+                <input id="release_date" name="release_date" type="text" value="{{ game.release_date }}"
+                    class="validate datepicker teal-text text-lighten-5" required>
                 <label for="release_date"><span class="material-symbols-outlined">Event</span>Release date</label>
             </div>
         </div>
@@ -59,10 +63,10 @@
             <div class="input-field col s12">
                 <label>
                     {% if game.is_singleplayer == True %}
-                        <input id="is_singleplayer" name="is_singleplayer" type="checkbox" value="True" class="validate"
+                    <input id="is_singleplayer" name="is_singleplayer" type="checkbox" value="True" class="validate"
                         checked />
                     {% else %}
-                        <input id="is_singleplayer" name="is_singleplayer" type="checkbox" value="True" class="validate">
+                    <input id="is_singleplayer" name="is_singleplayer" type="checkbox" value="True" class="validate">
                     {% endif %}
                     <span>The game is singleplayer </span>
                 </label>
@@ -71,14 +75,15 @@
         <!-- Image URL -->
         <div class="row">
             <div class="input-field col s12">
-                <input id="image_url" name="image_url" value="{{ game.image_url }}" type="url" class="validate teal-text text-lighten-5">
+                <input id="image_url" name="image_url" value="{{ game.image_url }}" type="url"
+                    class="validate teal-text text-lighten-5">
                 <label for="image_url"><span class="material-symbols-outlined">Link</span>Image URL</label>
             </div>
         </div>
         <!-- submit button -->
         <div class="row">
             <div class="col s12 center-align">
-                <button type="submit" class="btn-large">
+                <button onclick="requiredGenre()" type="submit" class="btn-large">
                     Update
                 </button>
             </div>
