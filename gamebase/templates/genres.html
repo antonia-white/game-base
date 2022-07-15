@@ -49,8 +49,13 @@
                 {% endif %}
             </div>
             <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">{{ game.title.title() }}<i
-                        class="material-symbols-outlined right">more_vert</i></span>
+                <span class="card-title activator grey-text text-darken-4">
+                    {% if game.title|length > 27 %}
+                    {{ game.title[0: 26].title() + "..." }}
+                    {% else %}
+                    {{ game.title.title() }}
+                    {% endif %}
+                    <i class="material-symbols-outlined right">more_vert</i></span>
                 <p><a href="{{ url_for('edit_game', game_id=game.id) }}" class="btn green accent-4">
                         <span class="material-symbols-outlined">Edit</span>
                         Edit</a>
