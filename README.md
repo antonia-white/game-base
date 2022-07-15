@@ -93,8 +93,12 @@ As a user of the Game Base website, I want to:
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript) was used for website interactivity
 - [GitPod](https://gitpod.io) was used as a cloud based iDE
 - [GitHub](https://github.com/) was used to manage the Git repository
-- [GitHub Pages](https://antonia-white.github.io/space-invaders/) was used for deployment
+- [Heroku](https://gamebase-storage.herokuapp.com/) was used for deployment
 - [Git](https://git-scm.com/) was used for version control
+- [MongoDB](https://www.mongodb.com/) was used as a database management system
+- [PostgreSQL](https://www.postgresql.org/) was used as a database management system
+- [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) was used as a web template engine for Python
+<!-- TODO: - [Python]()  -->
 - [Materialize](https://materializecss.com/) was used for website layout and responsive components
 - [Google Fonts](https://fonts.google.com/) was used to provide website fonts and icons
 - [Am I Responsive](http://ami.responsivedesign.is/) was used to generate a mockup image
