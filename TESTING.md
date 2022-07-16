@@ -60,6 +60,8 @@ Here are the issues tracked that have been closed and working as intended:
 
 ## Unfixed Bugs 
 
+To the best of my knowledge, there are no unfixed-bugs.
+
 ***
 
 ## Browser Compatability
