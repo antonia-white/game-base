@@ -115,65 +115,27 @@ To view all testing documentation, refer to [TESTING.md](TESTING.md).
 
 ## Deployment
 
-The site was deployed to GitHub pages. The steps to deploy are as follows: 
-  - In the [GitHub repository](https://github.com/antonia-white/space-invaders), navigate to the Settings tab.
-  - From the source section drop-down menu, select the **Main** Branch, then click "Save".
-  - The page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
+The site was deployed to Heroku. The steps to deploy are as follows: 
+  - 
 
-The live link can be found [here](https://antonia-white.github.io/space-invaders/)
+The live link can be found [here](https://gamebase-storage.herokuapp.com/)
 
 ### Local Deployment
 
-In order to make a local copy of this project, you can clone it. In your IDE Terminal, type the following command to clone the repository:
-
-- `git clone https://github.com/antonia-white/space-invaders.git`
-
-Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/antonia-white/space-invaders)
-
-### How to Install Jest
-In the terminal create a json file by running:
-```
-npm init
-```
-Click through the default configurations, set Jest as the test command by entering the string "jest" when cued.
-
-Once this is done, to install Jest as a development dependency run:
-```
-npm i --save-dev jest
-```
-To run Jest and the built tests simply run:
-```
-npm test
-```
-in the terminal.
-
-Note: You may need to manually install the jsdom environment. To do this simply run:
-```
-npm i jest-environment-jsdom
-```
-in the terminal when prompted after Jest installation.
-
-You can read more about how to set up Jest using their [official documentation](https://jestjs.io/docs/getting-started).
-
-***
 
 ## Credits 
 
 ### Content 
 
 - All text throughout the website is self-written.
-- 
 
 ### Media
-
-- 
+- The background image was taken from the open source site [Unsplash](https://unsplash.com/)
+- The image placeholder when a user doesn't input a link to an image or if the url provided is broken was taken from the open source site [Placeholder.com](https://placeholder.com/)
 
 ### Acknowledgments
 
 - My mentor Tim
 - My friends and family for testing the site and helping me identify bugs
-- 
 
 ***
