@@ -19,11 +19,11 @@
         <h4>{{ genre.genre_name }}
             <!-- Hide admin functionality for non-admin users -->
             {% if session['user'] == admin_id %}
-            <a href="{{ url_for('edit_genre', genre_id=genre.id) }}" class="waves-effect waves-green btn-flat">
+            <a href="{{ url_for('edit_genre', genre_id=genre.id) }}" class="waves-effect waves-green btn-flat admin-btn">
                 <span class="material-symbols-outlined">Edit</span>
             </a>
             <!-- Selection of delete game triggers modal -->
-            <a href="#modal-{{ genre.id }}" class="waves-effect waves-red btn-flat modal-trigger"><span
+            <a href="#modal-{{ genre.id }}" class="waves-effect waves-red btn-flat modal-trigger admin-btn"><span
                     class="material-symbols-outlined">Delete</span>
             </a>
             <!-- inject the modals partials-template -->
@@ -94,7 +94,7 @@
 {% endfor %}
 
 {% else %}
-<h3 class="red-text text-darken-4 center-align">Nothing to see here...</h3>
+<h3 class="red-text text-lighten-3 center-align">Nothing to see here...</h3>
 {% endif %}
 
 <p><small>Current genre list, please <a href="https://github.com/antonia-white/game-base/issues" target="_blank">contact
