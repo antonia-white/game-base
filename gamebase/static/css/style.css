@@ -112,6 +112,15 @@ body {
   margin-bottom: -15px;
 }
 
+/* Admin buttons */
+.admin-btn{
+  color:#9e9e9e;
+}
+
+.admin-btn:hover{
+  color:#e0f2f1;
+}
+
 /* Media queries */
 @media only screen and (min-width: 993px) {
   .container {
