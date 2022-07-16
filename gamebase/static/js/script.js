@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // datepicker initialization
     let datepickers = document.querySelectorAll(".datepicker");
     const d = new Date();
-    let year = d.getFullYear()
+    let year = d.getFullYear();
 
 
     M.Datepicker.init(datepickers, {
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // modal initializataion
     let modals = document.querySelectorAll(".modal");
     M.Modal.init(modals);
-})
+});
 
 document.querySelector(document).ready(function() {
     document.querySelector("select").material_select();
@@ -54,8 +54,8 @@ document.querySelector(document).ready(function() {
         opacity: 0,
         pointerEvents: 'none'
       });
-})
+});
 
 function requiredGenre() {
-    document.getElementById('required-genre').style.cssText = 'color: #F44336;'
+    document.getElementById('required-genre').style.cssText = 'color: #F44336;';
 }
