@@ -101,21 +101,27 @@ To the best of my knowledge, there are no unfixed-bugs.
 
 A target user of the Game Base website will want to:
 - [x] keep a record of games I want to play in the future
-   >The Game Base website...
+   >The Game Base website allows users to store games
 - [x] be able to add games to my Game Base
-   >The Game Base website...
+   >Users can add games to the Game Base database
+   >![Add game](documentation/testing/add-game.png)
 - [x] browse through the games I've added to my Game Base
-   >The Game Base website...
+   >Users can see the games they have added in the Game Base website
+   >![]()
 - [x] be able to edit the games on my Game Base
-   >The Game Base website...
+   >Users can edit their own games when logged into the Game Base website
+   >![Edit game](documentation/testing/edit-game.png)
 - [x] be able to remove games from my Game Base
-   >The Game Base website...
-- [x] sort the games I've added to my Game Base by category
-   >The Game Base website...
+   >Users can delete their own games when logged into the Game Base website
+   >![Delete game modal](documentation/testing/delete-game-modal.png)
+- [x] sort the games I've added to my Game Base by genre
+   >Users can view their games by genre in the genres tab of the Game Base website
+   >![]()
 - [x] view basic information of the games on my Game Base 
-   >The Game Base website...
+   >Users can store and view information they have inputted about their games
+   >![Game information](documentation/testing/game-information.png)
 - [x] log into my Game Base with my email address and password
-   >The Game Base website...
-
+   >After registering, a user is able to login to their Game Base
+   >![Login](documentation/testing/login.png)
 
 ***
