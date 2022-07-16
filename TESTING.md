@@ -42,11 +42,19 @@
 
 ### Fixed Bugs
 
-I used the built-in [GitHub Issues](https://github.com/antonia-white/game-base/issues) tracker for tracking any active bugs during development. Here are the issues tracked that have been closed and working as intended:
+I used the built-in [GitHub Issues](https://github.com/antonia-white/game-base/issues) tracker for tracking any active bugs during development. 
+![Github Issues](documentation/testing/github-issues-screenshot.png)
+
+Here are the issues tracked that have been closed and working as intended:
 
 - PSQL connection error [#1](https://github.com/antonia-white/game-base/issues/1)
-- Bug bug bug [#2](https://github.com/antonia-white/game-base/issues/2)
-- etc.
+- password value too long for type character varying(25) [#2](https://github.com/antonia-white/game-base/issues/2)
+- 'is_singleplayer' is not defined [#3](https://github.com/antonia-white/game-base/issues/3)
+- class 'builtins.dict' is not mapped [#4](https://github.com/antonia-white/game-base/issues/4)
+- 'BaseQuery' object has no attribute 'id' [#5](https://github.com/antonia-white/game-base/issues/5)
+- local variable 'Genre' referenced before assignment [#6](https://github.com/antonia-white/game-base/issues/6)
+- Invalid input syntax for type integer [#7](https://github.com/antonia-white/game-base/issues/7)
+- 'list' object has no attribute replace [#8](https://github.com/antonia-white/game-base/issues/8)
 
 ***
 
