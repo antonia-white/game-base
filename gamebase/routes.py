@@ -100,17 +100,6 @@ def edit_game(game_id):
         game.console = ', '.join(str(e) for e in console_list)
         game.user_id = user.id
 
-        # check if game title already exists in db
-        existing_titles = Game.query.filter(
-            and_(
-                Game.title.like(request.form.get("title")),
-                Game.user_id == session["user"],
-            )).all()
-
-        # repeat game
-        if existing_titles:
-            flash(f"You already have a game titled '{game.title}'")
-            return redirect(url_for("add_game"))
 
         db.session.commit()
         return redirect(url_for("get_games"))
