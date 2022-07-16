@@ -44,7 +44,7 @@
                     src="{{ url_for('static', filename = 'media/' +'no-image.jpg') }}">
                 {% else %}
                 <img src="{{ game.image_url }}" alt="{{ game.title }} image" class="activator"
-                    onError="this.onerror=null;this.src='{{ url_for(&quot;static&quot;, filename=&quot;media/&quot; +&quot;no-image.jpg&quot;) }}';">
+                    onError="this.onerror=null;this.src='{{ url_for('static', filename='media/' +'no-image.jpg') }}';">
                 <!-- <img class="activator" alt="{{ game.title }} image" src="{{ game.image_url }}"> -->
                 {% endif %}
             </div>
