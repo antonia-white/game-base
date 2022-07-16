@@ -5,31 +5,38 @@
 ## Validator Testing 
 
 - HTML
-  - No errors were returned in the ???.html file when passed through the official [W3C's HTML Validator](link).
+  - TODO: how to pass html validation with jinja?
 
     >![index.html](documentation/testing/html-validation-screenshot.png)
 
 
 - CSS
-  - No errors were found in the style.css file when passed through the official [Jigsaw validator](link).
+  - No errors were found in the `style.css` file when passed through the official [Jigsaw validator](https://jigsaw.w3.org/css-validator/#validate_by_input) CSS validator.
   
-    >![style.css](documentation/testing/css-validation-screenshot.png)
+    >![style.css](documentation/testing/jigsaw-css-validator-screenshot.png)
 
 
 - JavaScript
-  - No errors were found when both script.js and ???.js files were passed through the official [JSHint](https://jshint.com/).
+  - No errors were found when `script.js` was passed through the official [JSHint](https://jshint.com/) JavaScript validator.
 
-***
+    >![script.js](documentation/testing/jshint-js-validator-screenshot.png)
 
-## Automated Testing 
 
-Automated tests were ran using the Jest framework. I fully acknowledge and understand that, in a real-world scenario, an extensive set of Jest tests would be more comprehensive.
+- Python
+  - No errors were returned and all code met PEP8 compliance when `__init__.py` file was passed through the official [pep8online](http://pep8online.com/) Python validator.
 
-### Game Base Jest Tests
-To see the tests that were conducted please refer to [??.test.js](??.test.js).
+    >![__init__.py](documentation/testing/pep8online-py-__init__.py-validator-screenshot.png)
 
-Screenshot of these Jest tests running in the terminal:
->![Jest Tests Results](documentation/testing/jest-tests-results.png)
+
+  - No errors were returned and all code met PEP8 compliance when `models.py` file was passed through the official [pep8online](http://pep8online.com/) Python validator.
+
+    >![__init__.py](documentation/testing/pep8online-py-models.py-validator-screenshot.png)
+
+
+  - No errors were returned and all code met PEP8 compliance when `routes.py` file was passed through the official [pep8online](http://pep8online.com/) Python validator.
+
+    >![__init__.py](documentation/testing/pep8online-py-routes.py-validator-screenshot.png)
+
 
 ***
 
