@@ -99,6 +99,9 @@ As a user of the Game Base website, I want to:
 - [PostgreSQL](https://www.postgresql.org/) was used as a database management system
 - [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) was used as a web template engine for Python
 <!-- TODO: - [Python]()  -->
+- [Python]()
+- [Psycopg2]() was used as a database driver to connect to the postgreSQL database
+- [Pip3]() was the package manager used to install the dependencies
 - [Materialize](https://materializecss.com/) was used for website layout and responsive components
 - [Google Fonts](https://fonts.google.com/) was used to provide website fonts and icons
 - [Am I Responsive](http://ami.responsivedesign.is/) was used to generate a mockup image
@@ -169,6 +172,10 @@ To fork this project go to the top left of the repository, where you see the For
 ### Content 
 
 - All text throughout the website is self-written.
+- Multiple useful articles at [w3schools](https://www.w3schools.com/)
+- Various snippets of code adapted from helpful posters on [Stack Overflow](https://stackoverflow.com/)
+- The official doccumentation for [Jinja](https://jinja.palletsprojects.com/en/3.1.x/templates/)
+- Example combined database [repository](https://github.com/Code-Institute-Solutions/CombinedTaskManager2022) provided by Code Institute was used as a guide
 
 ### Media
 - The background image was taken from the open source site [Unsplash](https://unsplash.com/)
@@ -176,7 +183,7 @@ To fork this project go to the top left of the repository, where you see the For
 
 ### Acknowledgments
 
-- My mentor Tim
-- My friends and family for testing the site and helping me identify bugs
+- My Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN)
+- My friends and family for manually testing the site.
 
 ***
