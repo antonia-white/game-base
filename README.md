@@ -138,95 +138,106 @@ __Edit Game__
   - This form will auto-fill with the current values that are saved for that game.
   - As is the same when adding a game,  the edit form requires users to input a game title, select a game genre from the dropdown and provide a release date. The user may also chose to provide details on the game's developer, what console(s) the game can be played on, if the game is singleplayer or not, and finally provide an image url - for aesthetic display.
   - Once the user clicks 'update' the game record will be updated to the new information provided. This will then be displayed.
+    - The edit game feature also has defensive programming to prevent users editing a game that is not theirs.
 
   ![Edit Game](documentation/testing/edit-game.png)
 
 
 __Delete Game__
 
-  - 
-  - 
+  - When a user clicks the red 'delete' button on a game card, this triggers a modal to pop-up. The modal asks the user if they're certain they wish to delete the chosen game. Having a modal pop-up prevents accidental deletion. 
+  - The modal has a question phrased "are you sure you want to delete this game?" and reminds the user that the deletion can not be undone. There are two options, 'No' which does nothing and closes the modal, or 'Yes' which will delete the game if selected.
+  - The delete game feature also has defensive programming to prevent users deleting a game that is not theirs.
 
   ![Delete Game](documentation/testing/delete-game-modal.png)
 
 
 __Game Information__
 
-  - 
-  - 
+  - Interacting with a game card or clicking the kebab icon will reveal the game information. This is a display of the full title (even if truncated on the card cover) and any information the user has saved for that game.
+  - Clicking the close icon will close the game information overlay.
 
   ![Game Information](documentation/testing/game-information.png)
   
 
 __Genres__
 
-  - 
-  - 
+  - The genres page displays the user's games by genre. Genres are listed alphabetically. Genres can not be edited by a user, only an admin can edit/delete genres and consoles (see admin features).
+  - The game cards and game buttons work as explained above.
+  - There is a message at the bottom of the genres list: "Current genre list, please [contact the administrator](https://github.com/antonia-white/game-base/issues) for alterations or additions" - informing the user that they can not alter the games genre list and must contact the administrator (in this case, a direction towards the GameBase repo's issues, for demonstrative purposes). If a user wanted an addition or change to the list, they must open an issue and the admin would have to go and impliment the change/additionif appropriate.
 
   ![Genres](documentation/testing/genres.png)
 
 
 __Consoles__
 
-  - 
-  - 
+  - The console page displays the current console list, telling a user which consoles they can select for their games. The console list can not be edited by a user, only an admin can edit/delete consoles (see admin features).
+  - There is a message at the bottom of the consoles list: "Current console list, please [contact the administrator](https://github.com/antonia-white/game-base/issues) for alterations or additions" - informing the user that they can not alter the games genre list and must contact the administrator (in this case, a direction towards the GameBase repo's issues, for demonstrative purposes). If a user wanted an addition or change to the list, they must open an issue and the admin would have to go and impliment the change/additionif appropriate.
 
   ![Consoles](documentation/testing/consoles.png)
 
 
 ### Admin Features
 
+Only the admin has controls to edit and delete genres and consoles. For assessment purposes, the admin is the user that is able to log into GameBase with the email address "admin@admin.com". This could of course be changed if the website was to take genuine use. All admin features also have defensive programming to prevent a user brute forcing admin privelages.
+
 __Admin Genres View__
 
-  - 
-  - 
+  - The admin's genres page includes an '+ add genre' button. When clicked this will navigate the admin to the add genre form (see below).
+  - Each genre has two associated buttons - Edit and Delete buttons. These have subtle hover styling as seen on the edit action button in the picture below.
+  - When the edit button is clicked, the admin will be greeted with the edit genre form (see below).
+  - When the delete button is clicked, this will trigger the delete genre modal to pop-up (see below). 
 
   ![Admin Genres](documentation/testing/admin-genres.png)
 
 
 __Add Genre__
 
-  - 
-  - 
+  - The add genre form has a single input field for genre name.
+  - Once the 'add genre' button is clicked, this will add the genre record to the database. All users will now be able to select this genre for their games and see this genre in their genres list in the genres tab.
 
   ![Add Genre](documentation/testing/add-genre.png)
 
 
 __Edit Genre__
 
-  - 
-  - 
+  - The edit genre form title reminds the admin which genre they are currently editing.
+  - The edit genre form has a single input field for genre name.
+  - Once the 'update genre' button is clicked, this will update the genre record with the new details to the database. All users will now have this genre updated for their games and see this updated genre in their genres list in the genres tab.
 
   ![Edit Genre](documentation/testing/edit-genre.png)
 
 
 __Delete Genre__
-
-  - 
-  - 
+  - When the admin clicks the 'delete' button for a genre, this triggers a modal to pop-up. The modal asks the admin if they're certain they wish to delete the chosen genre. Having a modal pop-up prevents accidental deletion. 
+  - The modal has a question phrased "are you sure you want to delete the [Genre Name] genre?" and reminds the admin that this will delete all games associated to this genre for __all__ GameBase users and reminds that the deletion can not be undone. There are two options for the question, 'No' which does nothing and closes the modal, or 'Yes' which will delete the genre and all associated games if selected.
 
   ![Delete Genre](documentation/testing/delete-genre.png)
 
 
 __Admin Console View__
 
-  - 
-  - 
+  - The admin's consoles page includes an '+ add console' button. When clicked this will navigate the admin to the add console form (see below).
+  - Each console has two associated buttons - Edit and Delete buttons. These have subtle hover styling.
+  - When the edit button is clicked, the admin will be greeted with the edit console form (see below).
+  - When the delete button is clicked, this will trigger the delete console modal to pop-up (see below). 
 
   ![Admin Consoles](documentation/testing/admin-consoles.png)
 
 
 __Add Console__
 
-  - 
-  - 
+  - The add console form has a single input field for console name.
+  - Once the 'add console' button is clicked, this will add the console record to the database. All users will now be able to select this console for their games and see this console in the consoles list.
 
   ![Add Console](documentation/testing/add-console.png)
 
 
 __Edit Console__
 
-  - 
+  - The edit console form title reminds the admin which console they are currently editing.
+  - The edit console form has a single input field for console name.
+  - Once the 'update console' button is clicked, this will update the console record with the new details to the database. All users will now have this console updated for their games and see this updated console in the consoles list.
   - 
 
   ![Edit Console](documentation/testing/edit-console.png)
@@ -234,7 +245,8 @@ __Edit Console__
 
 __Delete Console__
 
-  - 
+  - When the admin clicks the 'delete' button for a console, this triggers a modal to pop-up. The modal asks the admin if they're certain they wish to delete the chosen console. Having a modal pop-up prevents accidental deletion. 
+  - The modal has a question phrased "are you sure you want to delete the [Console Name] console?" and reminds the admin that this will prevent users from assigning a game to this console in the future and reminds that the deletion can not be undone. There are two options for the question, 'No' which does nothing and closes the modal, or 'Yes' which will delete the console. This console will now not be visible in the console list.
   - 
 
   ![Delete Console](documentation/testing/delete-console.png)
