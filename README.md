@@ -113,18 +113,31 @@ __Mobile Navbar__
   ![Expandable Menu](documentation/testing/expandable-menu.png)
 
 
+__Games__
+
+  - The games page displays all the games the user has saved to their GameBase (in alphabetical order).
+  - The add game button navigates the user to the add game fomr (see below).
+  - Each game has its own card and displays a game image (if provided by the user). If no image is provided or if a broken url is provided by the user then a default placeholder will be displayed. The game card shows the game title (truncated if the title exceeds 27 characters), an edit game button which directs the user to the edit game form (see below) and a delete game button which results in the delete game modal pop up (see below). When the user clicks on the card area or the kebab icon, the game information content will display (see below).
+
+  ![Games](documentation/testing/games.png)
+
+
 __Add Game__
 
-  - 
-  - 
+  - Clicking the '+ add game' button on the games page will navigate the user to the add game form. 
+  - The form requires users to input a game title, select a game genre from the dropdown and provide a release date. The user may also chose to provide details on the game's developer, what console(s) the game can be played on, if the game is singleplayer or not, and finally provide an image url - for aesthetic display.
+  - The user will not be able to create a new instance of a game record if the title already exists in their collection of games i.e., a user will not be able to have duplicate entries of one game.
+  - Once the user clicks 'add game' and all the required fields have been filled, the game record is added to the database and the game will be displayed on the users Games tab (above).
 
   ![Add Game](documentation/testing/add-game.png)
-  
-  
+
+
 __Edit Game__
 
-  - 
-  - 
+  - When the green 'edit game' button is clicked on a game's card, the user will be directed to the edit game form.
+  - This form will auto-fill with the current values that are saved for that game.
+  - As is the same when adding a game,  the edit form requires users to input a game title, select a game genre from the dropdown and provide a release date. The user may also chose to provide details on the game's developer, what console(s) the game can be played on, if the game is singleplayer or not, and finally provide an image url - for aesthetic display.
+  - Once the user clicks 'update' the game record will be updated to the new information provided. This will then be displayed.
 
   ![Edit Game](documentation/testing/edit-game.png)
 
@@ -137,13 +150,20 @@ __Delete Game__
   ![Delete Game](documentation/testing/delete-game-modal.png)
 
 
-
 __Game Information__
 
   - 
   - 
 
   ![Game Information](documentation/testing/game-information.png)
+  
+
+__Genres__
+
+  - 
+  - 
+
+  ![Genres](documentation/testing/genres.png)
 
 
 __Consoles__
@@ -152,6 +172,72 @@ __Consoles__
   - 
 
   ![Consoles](documentation/testing/consoles.png)
+
+
+### Admin Features
+
+__Admin Genres View__
+
+  - 
+  - 
+
+  ![Admin Genres](documentation/testing/admin-genres.png)
+
+
+__Add Genre__
+
+  - 
+  - 
+
+  ![Add Genre](documentation/testing/add-genre.png)
+
+
+__Edit Genre__
+
+  - 
+  - 
+
+  ![Edit Genre](documentation/testing/edit-genre.png)
+
+
+__Delete Genre__
+
+  - 
+  - 
+
+  ![Delete Genre](documentation/testing/delete-genre.png)
+
+
+__Admin Console View__
+
+  - 
+  - 
+
+  ![Admin Consoles](documentation/testing/admin-consoles.png)
+
+
+__Add Console__
+
+  - 
+  - 
+
+  ![Add Console](documentation/testing/add-console.png)
+
+
+__Edit Console__
+
+  - 
+  - 
+
+  ![Edit Console](documentation/testing/edit-console.png)
+
+
+__Delete Console__
+
+  - 
+  - 
+
+  ![Delete Console](documentation/testing/delete-console.png)
 
 ### Features Left to Implement 
 
