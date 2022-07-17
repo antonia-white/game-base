@@ -73,8 +73,6 @@ def edit_game(game_id):
         flash("You need to be logged in to edit a game.")
         return redirect(url_for("login"))
     # You can only edit games that have a matching user id
-    print(session["user"])
-    print(Game.query.get_or_404(game_id).user_id)
     if session["user"] != Game.query.get_or_404(game_id).user_id:
         flash(
             "This is not your game! \
@@ -99,7 +97,6 @@ def edit_game(game_id):
         game.genre_id = request.form.get("genre")
         game.console = ', '.join(str(e) for e in console_list)
         game.user_id = user.id
-
 
         db.session.commit()
         return redirect(url_for("get_games"))
@@ -206,9 +203,6 @@ def get_genres():
         return redirect(url_for("login"))
 
     admin_id = User.query.filter(User.email == "admin@admin.com").first().id
-    print("This is the admin_id: " + str(
-        User.query.filter(User.email == "admin@admin.com").first().id))
-    print("This is the session user: " + str(session['user']))
     genres = list(Genre.query.order_by(Genre.genre_name).all())
     games = list(Game.query.all())
     return render_template(
