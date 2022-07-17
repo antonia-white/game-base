@@ -115,12 +115,53 @@ To view all testing documentation, refer to [TESTING.md](TESTING.md).
 
 ## Deployment
 
-The site was deployed to Heroku. The steps to deploy are as follows: 
-  - 
+The site was deployed to Heroku. The live link can be found [here](https://gamebase-storage.herokuapp.com/)
 
-The live link can be found [here](https://gamebase-storage.herokuapp.com/)
+The steps to deploy a Heroku app are as follows: 
+1.  Log in to Heroku or create an account if required.
+2.  Create a Heroku app - select 'New', from the drop-down menu select Create New App. The app name provided must be unique.
+3.  Select a region.
+4.  Create.
+5.  Navigate to the Resources tab and add a Heroku Postgres database.
+6.  Access the Settings Tab and find the Config Vars. For this project you will need the following config vars:
+    *   MONGO_DBNAME = the name of your mongo database.
+    *   MONGO_URI = the uri for your mongo database.
+    *   DATABASE_URL = the url of your heroku postgres database.
+    *   SECRET_KEY = a secret key for your app.
+    *   PORT = 
+    *   DEBUG = set to 'True' during development and 'False' upon deployment.
+    *   IP = 
+  Please see this [official documentation](https://devcenter.heroku.com/articles/config-vars) on Heroku configuration for more details.
 
-### Local Deployment
+7.  Navigate to the Deploy tab.
+8.  Select Github as the deployment method.
+9.  Follow steps to link to the appropriate GitHub account.
+12. If you wish, enable Automatic Deploys for automatic deployment when you push updates to Github. Or alternativley, select the correct branch for deployment from the drop-down menu and click Deploy Branch for manual deployment.
+
+Final steps: 
+1. Create a Procfile in your repository containing `web: python run.py` so that Heroku will identify the app as a Python app.
+2. Create an untracked file called env.py in your repo and input the config vars you previously established in Heroku.
+
+### Cloning
+
+Cloning a repository makes it easier to contribute, fix merge conflicts, add or remove files, and push larger commits. To clone this repository from GitHub to a local computer use the following steps:
+
+1.  On GitHub, navigate to the main page of the repository.
+
+2.  Above the list of files, click Code.
+
+3.  Click Use GitHub CLI, then the copy icon.
+
+4.  Open Git Bash and change the current working directory to the location where you want the cloned directory.
+
+5.  Type git clone, and then paste the URL that was copied from step 3 above.
+
+6. Press Enter to create the local clone.
+
+### Forking
+A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.
+
+To fork this project go to the top left of the repository, where you see the Fork Icon and click Fork.  This will create a copy of the repository for you.
 
 
 ## Credits 
