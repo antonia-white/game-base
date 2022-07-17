@@ -73,12 +73,85 @@ As a user of the Game Base website, I want to:
 
 ### Existing Features 
 
-- __Example Feature__
+__Login__
+
+  - This is the page that first loads when a user visits the website. It allows users to log into their GameBase with their email address and password that they set up during registration.
+  - If a user has not yet registered, there is a link to the registration page so they may do so.
+  - The log in page contains the navbar, however, if a user tries to navigate to a page (e.g., the games page) without having logged in beforehand they will be uable to do so and directed to log in.
+  - If a user logs in with an invalid email and/or password they will be informed and unable to login.
+  - The logout button on the navbar has been hidden and disabled as the user is not logged in.
+
+  ![Login](documentation/testing/login-screen.png)
+
+
+__Register__
+
+  - A user will navigate to this page to create their GameBase account. Once a GameBase account has been created a user will be able to login using their email and password to access the main site content.
+  - The user will not be able to create an account if the email provided is already assigned to a GameBase account. If this is attempted the user will be informed.
+  - The logout button on the navbar has been hidden and disabled as the user is not logged in.
+
+  ![Register](documentation/testing/register.png)
+
+
+__Navbar__
+
+  - Once logged in, a user will be able to navigate throughout the website via the navbar.
+  - The navbar consits of the website logo (left) and four buttons (right). The buttons navigate the user to the games page, genres, page, consoles page, or logout the user.
+
+  ![Navbar](documentation/testing/navbar.png)
+
+
+__Mobile Navbar__
+
+  - Once logged in, a user will be able to navigate throughout the website via the navbar.
+  - The navbar consits of the website logo (right) and an expandable burger menu (left) which contains four buttons. The buttons navigate the user to the games page, genres, page, consoles page, or logout the user.
+
+  ![Mobile Navbar](documentation/testing/mobile-navbar.png)
+  
+  When burger menu is expanded:
+
+  ![Expandable Menu](documentation/testing/expandable-menu.png)
+
+
+__Add Game__
 
   - 
   - 
 
-    >![Example](documentation/testing/example-screenshot.png)
+  ![Add Game](documentation/testing/add-game.png)
+  
+  
+__Edit Game__
+
+  - 
+  - 
+
+  ![Edit Game](documentation/testing/edit-game.png)
+
+
+__Delete Game__
+
+  - 
+  - 
+
+  ![Delete Game](documentation/testing/delete-game-modal.png)
+
+
+
+__Game Information__
+
+  - 
+  - 
+
+  ![Game Information](documentation/testing/game-information.png)
+
+
+__Consoles__
+
+  - 
+  - 
+
+  ![Consoles](documentation/testing/consoles.png)
 
 ### Features Left to Implement 
 
