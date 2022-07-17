@@ -89,8 +89,8 @@ As a user of the Game Base website, I want to:
 
 ## Technologies
 - [HTML](https://en.wikipedia.org/wiki/HTML) was used as the markup language
-- [CSS](https://en.wikipedia.org/wiki/CSS) was used for styles
-- [JavaScript](https://en.wikipedia.org/wiki/JavaScript) was used for website interactivity
+- [CSS](https://en.wikipedia.org/wiki/CSS) was used for custom styling
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript) was used for custom website interactivity
 - [GitPod](https://gitpod.io) was used as a cloud based iDE
 - [GitHub](https://github.com/) was used to manage the Git repository
 - [Heroku](https://gamebase-storage.herokuapp.com/) was used for deployment
@@ -98,10 +98,10 @@ As a user of the Game Base website, I want to:
 - [MongoDB](https://www.mongodb.com/) was used as a database management system
 - [PostgreSQL](https://www.postgresql.org/) was used as a database management system
 - [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) was used as a web template engine for Python
-<!-- TODO: - [Python]()  -->
-- [Python]()
-- [Psycopg2]() was used as a database driver to connect to the postgreSQL database
-- [Pip3]() was the package manager used to install the dependencies
+- [Flask](https://flask.palletsprojects.com/en/2.1.x/) python web framework used to create routes
+- [Python](https://www.python.org/downloads/) used as a dependency for Flask
+- [Psycopg2](https://www.psycopg.org/docs/) was used as a database driver to connect to the postgreSQL database
+- [Pip3](https://pip.pypa.io/en/stable/) was the package manager used to install the dependencies
 - [Materialize](https://materializecss.com/) was used for website layout and responsive components
 - [Google Fonts](https://fonts.google.com/) was used to provide website fonts and icons
 - [Am I Responsive](http://ami.responsivedesign.is/) was used to generate a mockup image
@@ -131,9 +131,10 @@ The steps to deploy a Heroku app are as follows:
     *   MONGO_URI = the uri for your mongo database.
     *   DATABASE_URL = the url of your heroku postgres database.
     *   SECRET_KEY = a secret key for your app.
-    *   PORT = 
+    *   PORT = 5000
     *   DEBUG = set to 'True' during development and 'False' upon deployment.
-    *   IP = 
+    *   IP = Your IP address
+
   Please see this [official documentation](https://devcenter.heroku.com/articles/config-vars) on Heroku configuration for more details.
 
 7.  Navigate to the Deploy tab.
