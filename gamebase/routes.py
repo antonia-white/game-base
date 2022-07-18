@@ -62,6 +62,7 @@ def add_game():
 
         db.session.add(game)
         db.session.commit()
+        flash(f"{game.title.title()} Successfully Added")
         return redirect(url_for("get_games"))
     return render_template("add_game.html", genres=genres, consoles=consoles)
 
@@ -99,6 +100,7 @@ def edit_game(game_id):
         game.user_id = user.id
 
         db.session.commit()
+        flash(f"{game.title.title()} Successfully Updated")
         return redirect(url_for("get_games"))
     return render_template(
         "edit_game.html", game=game, genres=genres, consoles=consoles)
@@ -123,6 +125,7 @@ def delete_game(game_id):
     db.session.delete(game)
     db.session.commit()
     mongo.db.consoles.delete_many({"game_id": str(game_id)})
+    flash("Game Successfully Deleted")
     return redirect(url_for("get_games"))
 
 
@@ -174,8 +177,8 @@ def edit_console(console_id):
             "console_name": request.form.get("console_name")
         }
         mongo.db.consoles.replace_one({"_id": ObjectId(console_id)}, submit)
+        flash(f"{submit['console_name']} Successfully Updated")
         return redirect(url_for("get_consoles"))
-        flash(f"{console['console_name']} Successfully Updated")
 
     return render_template("edit_console.html", console=console)
 
@@ -223,6 +226,7 @@ def add_genre():
         )
         db.session.add(genre)
         db.session.commit()
+        flash(f"{genre.genre_name.title()} Successfully Added")
         return redirect(url_for("get_genres"))
     return render_template("add_genre.html")
 
@@ -239,6 +243,7 @@ def edit_genre(genre_id):
     if request.method == "POST":
         genre.genre_name = request.form.get("genre-name")
         db.session.commit()
+        flash(f"{genre.genre_name.title()} Successfully Updated")
         return redirect(url_for("get_genres"))
     return render_template("edit_genre.html", genre=genre)
 
@@ -255,7 +260,7 @@ def delete_genre(genre_id):
 
     db.session.delete(genre)
     db.session.commit()
-    # mongo.db.consoles.delete_many({"genre_id": str(genre_id)})
+    flash("Genre Successfully Deleted")
     return redirect(url_for("get_genres"))
 
 
