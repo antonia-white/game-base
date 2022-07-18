@@ -8,10 +8,10 @@ from sqlalchemy import and_
 
 # GAMES - DB
 
-@app.route("/get_games")
+@app.route("/")
 def get_games():
     if "user" not in session:
-        flash("You need to be logged in to view games")
+        flash("Please login")
         return redirect(url_for("login"))
     games = list(Game.query.order_by(Game.title).all())
     consoles = list(mongo.db.consoles.find())
@@ -267,9 +267,12 @@ def delete_genre(genre_id):
 
 
 # USERS - DB
-@app.route("/")
+@app.route("/login")
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    if "user" in session:
+        flash("You are already logged in")
+        return redirect(url_for("get_games"))
     if request.method == "POST":
         # check if email exists in db
         existing_user = User.query.filter(
@@ -298,6 +301,9 @@ def login():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    if "user" in session:
+        flash("You are already logged in")
+        return redirect(url_for("get_games"))
     if request.method == "POST":
         # check if username already exists in db
         existing_user = User.query.filter(
