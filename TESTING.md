@@ -5,7 +5,7 @@
 ## Validator Testing 
 
 - HTML
-  - TODO: how to pass html validation with jinja?
+  - TODO: for each of the pages.
 
     >![index.html](documentation/testing/html-validation-screenshot.png)
 
@@ -37,6 +37,9 @@
 
     >![__init__.py](documentation/testing/pep8online-py-routes.py-validator-screenshot.png)
 
+  - No errors were returned and all code met PEP8 compliance when `run.py` file was passed through the official [pep8online](http://pep8online.com/) Python validator.
+
+  TODO: >![__init__.py](documentation/testing/pep8online-py-run.py-validator-screenshot.png)
 
 ***
 
@@ -125,3 +128,7 @@ A target user of the Game Base website will want to:
    >![Login](documentation/testing/login.png)
 
 ***
+
+## Defensive Programming Testing
+- Checks url and date input are correct type
+- For admin stuff
