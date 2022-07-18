@@ -82,15 +82,15 @@ To the best of my knowledge, there are no unfixed-bugs.
 
 ## Responsiveness
 
-- Website viewed in a mobile device:
+- Website viewed on a mobile device:
 
   >![Mobile view](documentation/testing/mobile-deployment-screenshot.png)
 
-- Website viewed in a tablet device:
+- Website viewed on a tablet device:
 
   >![Tablet view](documentation/testing/tablet-deployment-screenshot.png)
 
-- Website viewed in a laptop device:
+- Website viewed on a laptop device:
 
   >![Laptop view](documentation/testing/laptop-deployment-screenshot.png)
 
@@ -107,7 +107,7 @@ A target user of the Game Base website will want to:
    >![Add game](documentation/testing/add-game.png)
 - [x] browse through the games I've added to my Game Base
    >Users can see the games they have added in the Game Base website
-   >![]()
+   >![Gmaes](documentation/testing/games.png)
 - [x] be able to edit the games on my Game Base
    >Users can edit their own games when logged into the Game Base website
    >![Edit game](documentation/testing/edit-game.png)
@@ -116,7 +116,7 @@ A target user of the Game Base website will want to:
    >![Delete game modal](documentation/testing/delete-game-modal.png)
 - [x] sort the games I've added to my Game Base by genre
    >Users can view their games by genre in the genres tab of the Game Base website
-   >![]()
+   >![Genre](documentation/testing/genres.png)
 - [x] view basic information of the games on my Game Base 
    >Users can store and view information they have inputted about their games
    >![Game information](documentation/testing/game-information.png)
