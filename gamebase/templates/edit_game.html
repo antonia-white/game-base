@@ -26,7 +26,7 @@
             <div class="input-field col s12">
                 <span id="required-genre" class="right-align">*required</span>
                 <select id="genre" name="genre" required>
-                    <option value="" disabled selected>Choose the genre</option>
+                    <option value="" disabled>Choose the genre</option>
                     {% for genre in genres %}
                     {% if genre.id == game.genre_id %}
                     <option value="{{ genre.id }}" selected>{{ genre.genre_name }}</option>
