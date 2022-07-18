@@ -5,9 +5,49 @@
 ## Validator Testing 
 
 - HTML
-  - TODO: for each of the pages.
+  - No errors were found in the `login.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input)).
 
-    >![index.html](documentation/testing/html-validation-screenshot.png)
+    >![index.html](documentation/testing/html-validation-login.png)
+
+  - No errors were found in the `register.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input)).
+
+    >![index.html](documentation/testing/html-validation-register.png)
+
+  - No errors were found in the `games.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input)).
+
+    >![index.html](documentation/testing/html-validation-games.png)
+
+  - No errors were found in the `add_game.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input)).
+
+    >![index.html](documentation/testing/html-validation-add-game.png)
+
+  - No errors were found in the `edit_game.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input)).
+
+    >![index.html](documentation/testing/html-validation-edit-game.png)
+
+  - No errors were found in the `genres.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input)).
+
+    >![index.html](documentation/testing/html-validation-genres.png)
+
+  - No errors were found in the `add_genre.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input)).
+
+    >![index.html](documentation/testing/html-validation-add-genre.png)
+
+  - No errors were found in the `edit_genre.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input)).
+
+    >![index.html](documentation/testing/html-validation-edit-genre.png)
+
+  - No errors were found in the `consoles.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input)).
+
+    >![index.html](documentation/testing/html-validation-consoles.png)
+
+  - No errors were found in the `add_console.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input)).
+
+    >![index.html](documentation/testing/html-validation-add-console.png)
+
+  - No errors were found in the `edit_console.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input)).
+
+    >![index.html](documentation/testing/html-validation-edit-console.png)
 
 
 - CSS
