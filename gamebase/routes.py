@@ -137,7 +137,9 @@ def get_consoles():
         return redirect(url_for("login"))
 
     admin_id = User.query.filter(User.email == "admin@admin.com").first().id
-    consoles = list(mongo.db.consoles.find())
+    unsorted_consoles = list(mongo.db.consoles.find())
+    consoles = sorted(
+        unsorted_consoles, key=lambda item: item.get("console_name"))
     return render_template(
         "consoles.html", consoles=consoles, admin_id=admin_id)
 
