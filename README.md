@@ -316,6 +316,9 @@ The steps to deploy a Heroku app are as follows:
 Final steps: 
 1. Create a Procfile in your repository containing `web: python run.py` so that Heroku will identify the app as a Python app.
 2. Create an untracked file called env.py in your repo and input the config vars you previously established in Heroku.
+3. Create a requirements.txt file
+    - If you want to freeze your own packages into this file, run `pip3 freeze --local > requirements.txt` in the console.
+    - To instal only the packages that are already listed in the GameBase repo requirements (if making a local copy/clone) run `pip3 install -r requirements.txt` in the console.
 
 ### Cloning
 
@@ -329,7 +332,7 @@ Cloning a repository makes it easier to contribute, fix merge conflicts, add or 
 
 4.  Open Git Bash and change the current working directory to the location where you want the cloned directory.
 
-5.  Type git clone, and then paste the URL that was copied from step 3 above.
+5.  Type git clone, and then paste the URL that was copied from step 3 above - i.e., `git clone https://github.com/antonia-white/game-base.git`
 
 6. Press Enter to create the local clone.
 
