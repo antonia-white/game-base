@@ -36,25 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
     M.Modal.init(modals);
 });
 
-document.querySelector(document).ready(function() {
-    document.querySelector("select").material_select();
-
-    // for HTML5 "required" attribute
-    document.querySelector("select[required]").css({
-        display: 'inline',
-        position: 'absolute',
-        float: 'left',
-        padding: 0,
-        margin: 0,
-        border: '1px solid rgba(255,255,255,0)',
-        height: 0, 
-        width: 0,
-        top: '2em',
-        left: '3em',
-        opacity: 0,
-        pointerEvents: 'none'
-      });
-});
 
 function requiredGenre() {
     document.getElementById('required-genre').style.cssText = 'color: #F44336;';
