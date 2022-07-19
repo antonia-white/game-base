@@ -344,6 +344,7 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
+
 # 404 error handling
 @app.errorhandler(404)
 def page_not_found(error):
