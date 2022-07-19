@@ -24,7 +24,6 @@
         <!-- Genre -->
         <div class="row">
             <div class="input-field col s12">
-                <span id="required-genre" class="right-align">*required</span>
                 <select id="genre" name="genre" required>
                     <option value="" disabled>Choose the genre</option>
                     {% for genre in genres %}
@@ -83,7 +82,7 @@
         <!-- submit button -->
         <div class="row">
             <div class="col s12 center-align">
-                <button onclick="requiredGenre()" type="submit" class="btn-large">
+                <button type="submit" class="btn-large">
                     Update
                 </button>
             </div>
