@@ -52,8 +52,8 @@
         <!-- Release Date -->
         <div class="row">
             <div class="input-field col s12">
-                <input id="release_date" name="release_date" type="text" value="{{ game.release_date }}"
-                    class="validate datepicker teal-text text-lighten-5" required>
+                <input id="release_date" name="release_date" type="date" value="{{ game.release_date }}" onClick="event.preventDefault()"
+                    class="validate datepicker teal-text text-lighten-5" required validate>
                 <label for="release_date"><span class="material-symbols-outlined">Event</span>Release date</label>
             </div>
         </div>
