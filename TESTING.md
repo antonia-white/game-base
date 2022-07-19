@@ -79,7 +79,7 @@
 
   - No errors were returned and all code met PEP8 compliance when `run.py` file was passed through the official [pep8online](http://pep8online.com/) Python validator.
 
-  TODO: >![__init__.py](documentation/testing/pep8online-py-run.py-validator-screenshot.png)
+    >![run.py](documentation/testing/pep8online-py-run.py-validator-screenshot.png)
 
 ***
 
@@ -98,6 +98,7 @@ Here are the issues tracked that have been closed and working as intended:
 - local variable 'Genre' referenced before assignment [#6](https://github.com/antonia-white/game-base/issues/6)
 - Invalid input syntax for type integer [#7](https://github.com/antonia-white/game-base/issues/7)
 - 'list' object has no attribute replace [#8](https://github.com/antonia-white/game-base/issues/8)
+- invalid input for type 'date' [#9](https://github.com/antonia-white/game-base/issues/9)
 
 ***
 
