@@ -36,7 +36,7 @@
         <!-- Console -->
         <div class="row">
             <div class="input-field col s12">
-                <select multiple id="console" name="console" required>
+                <select multiple id="console" name="console">
                     <option value="" disabled>Selects console(s)</option>
                     {% for console in consoles %}
                     <option value="{{ console.console_name }}">{{ console.console_name }}</option>
@@ -48,7 +48,7 @@
         <!-- Release Date -->
         <div class="row">
             <div class="input-field col s12">
-                <input id="release_date" name="release_date" type="date" onClick="event.preventDefault()"
+                <input id="release_date" name="release_date" type="text" onkeydown="preventKeyboardInput(event)"
                     class="validate datepicker teal-text text-lighten-5" required validate>
                 <label for="release_date"><span class="material-symbols-outlined">Event</span>Release date</label>
             </div>

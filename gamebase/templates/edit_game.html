@@ -24,7 +24,8 @@
         <!-- Genre -->
         <div class="row">
             <div class="input-field col s12">
-                <select class="validate" id="genre" name="genre" required>
+                <span id="required-genre" class="right-align">*required</span>
+                <select id="genre" name="genre" required>
                     <option value="" disabled>Choose the genre</option>
                     {% for genre in genres %}
                     {% if genre.id == game.genre_id %}
@@ -52,8 +53,8 @@
         <!-- Release Date -->
         <div class="row">
             <div class="input-field col s12">
-                <input id="release_date" name="release_date" type="date" value="{{ game.release_date }}" onClick="event.preventDefault()"
-                    class="validate datepicker teal-text text-lighten-5" required validate>
+                <input id="release_date" name="release_date" type="text" onkeydown="preventKeyboardInput(event)" value="{{ game.release_date }}"
+                    class="validate datepicker teal-text text-lighten-5" required>
                 <label for="release_date"><span class="material-symbols-outlined">Event</span>Release date</label>
             </div>
         </div>
