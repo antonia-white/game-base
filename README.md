@@ -256,6 +256,9 @@ __Delete Console__
 - Have consoles input field autofill with stored values when trying to edit a game 
   - With additional time I would implement this feature by migrating the consoles database to a relational DBMS or relate MongoDB ObjectID's by converting the ObjectId to a time stamp, as seen [here](https://steveridout.com/mongo-object-time/)
 
+- Have functionality to allow users to reset their passwords if forgotten
+  - With additional time I would create a feature that would allow users to reset their password. A message would be sent to a user's email address with a custom link to enable the user to reset their password. The database containing user information would then be updated with the new password.
+
 ***
 
 ## Technologies
