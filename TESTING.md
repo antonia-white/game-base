@@ -108,7 +108,7 @@ To the best of my knowledge, there are no unfixed-bugs.
 
 ***
 
-## Browser Compatability
+## Browser Compatibility
 
 - Website launched successfully on [Firefox](https://www.mozilla.org/en-GB/firefox/new/):
 
@@ -177,7 +177,7 @@ A target user of the Game Base website will want to:
         flash("Please login")
         return redirect(url_for("login"))
   ```
-- There is defensive programming in place so that a user can only edit and delete games that belong to them. This was acheived by setting the session user to equal the individual's id from the user table in the gamebase database. If the session user matches the id of the person who created the game, then edit and delete actions are allowed. If the session user does not match the id, the user will be alerted and redirected to login. For example, as seen in the edit game route:
+- There is defensive programming in place so that a user can only edit and delete games that belong to them. This was achieved by setting the session user to equal the individual's id from the user table in the gamebase database. If the session user matches the id of the person who created the game, then edit and delete actions are allowed. If the session user does not match the id, the user will be alerted and redirected to login. For example, as seen in the edit game route:
   ```
   if session["user"] != Game.query.get_or_404(game_id).user_id:
         flash(
@@ -185,7 +185,7 @@ A target user of the Game Base website will want to:
             You can only edit your own games. Please log in.")
         return redirect(url_for("login"))
   ```
-- There is defensive programming to ensure only an admin can create, edit or delete records of genres and consoles. This is acheived by querying if the session user (i.e., the user id of the user currenty logged in) is equal to the user id of the account that has the email address "admin@admin.com". If these do match up then admin priveleges are allowedm otherwise the user will be alerted and redirected. For example, as seen in the edit console route:
+- There is defensive programming to ensure only an admin can create, edit or delete records of genres and consoles. This is achieved by querying if the session user (i.e., the user id of the user currently logged in) is equal to the user id of the account that has the email address "admin@admin.com". If these do match up then admin privileges are allowed otherwise the user will be alerted and redirected. For example, as seen in the edit console route:
   ```
   if session["user"] != User.query.filter(
                 User.email == "admin@admin.com").first().id:
