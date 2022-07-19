@@ -1,7 +1,7 @@
 # Game Base
 
 This website allows gamers to keep a record of games that they want to play in the future. 
-As a gamer, you often talk to your friends about the games that they're playing and in passing you may hear of cool games that you want to play in the future. Have you ever been in a situation where you are ready to start a new game but you can't quite remember the name of that one particular game that a friend of a friend recomended 2 months ago? Well, Game Base would be perfect for you! It's a quick and simple way of creating a 'to-play' list! Never feel uncertain of what game to play next with Game Base.
+As a gamer, you often talk to your friends about the games that they're playing and in passing you may hear of cool games that you want to play in the future. Have you ever been in a situation where you are ready to start a new game but you can't quite remember the name of that one particular game that a friend of a friend recommended 2 months ago? Well, Game Base would be perfect for you! It's a quick and simple way of creating a 'to-play' list! Never feel uncertain of what game to play next with Game Base.
 
 To visit the website, please visit the deployed site [here](https://gamebase-storage.herokuapp.com/).
 
@@ -36,7 +36,7 @@ As a user of the Game Base website, I want to:
 - Google Fonts
   Font styles were taken from the open source [Google Fonts](https://fonts.google.com/).
   - the typography for the text throughout the website is [Albert Sans](https://fonts.google.com/specimen/Albert+Sans). This font design was inspired by the type-characteristics of scandinavian architects and designers in the early 20th century. It gives a clean and fresh look to the website. 
-  - The typography for the brand logo is font-family [Archivo Narrow](https://fonts.google.com/specimen/Archivo+Narrow?preview.text=Game%20Base&preview.text_type=custom#standard-styles). This font was originally designed for highlights and headlines. This family is reminiscent of late nineteenth century American typefaces. As such, it is eyecatching to the user.
+  - The typography for the brand logo is font-family [Archivo Narrow](https://fonts.google.com/specimen/Archivo+Narrow?preview.text=Game%20Base&preview.text_type=custom#standard-styles). This font was originally designed for highlights and headlines. This family is reminiscent of late nineteenth century American typefaces. As such, it is eye-catching to the user.
 
 ***
 
@@ -77,7 +77,7 @@ __Login__
 
   - This is the page that first loads when a user visits the website. It allows users to log into their GameBase with their email address and password that they set up during registration.
   - If a user has not yet registered, there is a link to the registration page so they may do so.
-  - The log in page contains the navbar, however, if a user tries to navigate to a page (e.g., the games page) without having logged in beforehand they will be uable to do so and directed to log in.
+  - The log in page contains the navbar, however, if a user tries to navigate to a page (e.g., the games page) without having logged in beforehand they will be unable to do so and directed to log in.
   - If a user logs in with an invalid email and/or password they will be informed and unable to login.
   - The logout button on the navbar has been hidden and disabled as the user is not logged in.
 
@@ -96,7 +96,7 @@ __Register__
 __Navbar__
 
   - Once logged in, a user will be able to navigate throughout the website via the navbar.
-  - The navbar consits of the website logo (left) and four buttons (right). The buttons navigate the user to the games page, genres, page, consoles page, or logout the user.
+  - The navbar consists of the website logo (left) and four buttons (right). The buttons navigate the user to the games page, genres, page, consoles page, or logout the user.
 
   ![Navbar](documentation/testing/navbar.png)
 
@@ -104,7 +104,7 @@ __Navbar__
 __Mobile Navbar__
 
   - Once logged in, a user will be able to navigate throughout the website via the navbar.
-  - The navbar consits of the website logo (right) and an expandable burger menu (left) which contains four buttons. The buttons navigate the user to the games page, genres, page, consoles page, or logout the user.
+  - The navbar consist of the website logo (right) and an expandable burger menu (left) which contains four buttons. The buttons navigate the user to the games page, genres, page, consoles page, or logout the user.
 
   ![Mobile Navbar](documentation/testing/mobile-navbar.png)
   
@@ -116,7 +116,7 @@ __Mobile Navbar__
 __Games__
 
   - The games page displays all the games the user has saved to their GameBase (in alphabetical order).
-  - The add game button navigates the user to the add game fomr (see below).
+  - The add game button navigates the user to the add game form (see below).
   - Each game has its own card and displays a game image (if provided by the user). If no image is provided or if a broken url is provided by the user then a default placeholder will be displayed. The game card shows the game title (truncated if the title exceeds 27 characters), an edit game button which directs the user to the edit game form (see below) and a delete game button which results in the delete game modal pop up (see below). When the user clicks on the card area or the kebab icon, the game information content will display (see below).
 
   ![Games](documentation/testing/games.png)
@@ -125,7 +125,7 @@ __Games__
 __Add Game__
 
   - Clicking the '+ add game' button on the games page will navigate the user to the add game form. 
-  - The form requires users to input a game title, select a game genre from the dropdown and provide a release date. The user may also chose to provide details on the game's developer, what console(s) the game can be played on, if the game is singleplayer or not, and finally provide an image url - for aesthetic display.
+  - The form requires users to input a game title, select a game genre from the drop-down and provide a release date. The user may also chose to provide details on the game's developer, what console(s) the game can be played on, if the game is singleplayer or not, and finally provide an image url - for aesthetic display.
   - The user will not be able to create a new instance of a game record if the title already exists in their collection of games i.e., a user will not be able to have duplicate entries of one game.
   - Once the user clicks 'add game' and all the required fields have been filled, the game record is added to the database and the game will be displayed on the users Games tab (above).
 
@@ -136,7 +136,7 @@ __Edit Game__
 
   - When the green 'edit game' button is clicked on a game's card, the user will be directed to the edit game form.
   - This form will auto-fill with the current values that are saved for that game.
-  - As is the same when adding a game,  the edit form requires users to input a game title, select a game genre from the dropdown and provide a release date. The user may also chose to provide details on the game's developer, what console(s) the game can be played on, if the game is singleplayer or not, and finally provide an image url - for aesthetic display.
+  - As is the same when adding a game,  the edit form requires users to input a game title, select a game genre from the drop-down and provide a release date. The user may also chose to provide details on the game's developer, what console(s) the game can be played on, if the game is singleplayer or not, and finally provide an image url - for aesthetic display.
   - Once the user clicks 'update' the game record will be updated to the new information provided. This will then be displayed.
     - The edit game feature also has defensive programming to prevent users editing a game that is not theirs.
 
@@ -164,7 +164,7 @@ __Genres__
 
   - The genres page displays the user's games by genre. Genres are listed alphabetically. Genres can not be edited by a user, only an admin can edit/delete genres and consoles (see admin features).
   - The game cards and game buttons work as explained above.
-  - There is a message at the bottom of the genres list: "Current genre list, please [contact the administrator](https://github.com/antonia-white/game-base/issues) for alterations or additions" - informing the user that they can not alter the games genre list and must contact the administrator (in this case, a direction towards the GameBase repo's issues, for demonstrative purposes). If a user wanted an addition or change to the list, they must open an issue and the admin would have to go and impliment the change/additionif appropriate.
+  - There is a message at the bottom of the genres list: "Current genre list, please [contact the administrator](https://github.com/antonia-white/game-base/issues) for alterations or additions" - informing the user that they can not alter the games genre list and must contact the administrator (in this case, a direction towards the GameBase repo's issues, for demonstrative purposes). If a user wanted an addition or change to the list, they must open an issue and the admin would have to go and implement the change/addition if appropriate.
 
   ![Genres](documentation/testing/genres.png)
 
@@ -172,14 +172,14 @@ __Genres__
 __Consoles__
 
   - The console page displays the current console list, telling a user which consoles they can select for their games. The console list can not be edited by a user, only an admin can edit/delete consoles (see admin features).
-  - There is a message at the bottom of the consoles list: "Current console list, please [contact the administrator](https://github.com/antonia-white/game-base/issues) for alterations or additions" - informing the user that they can not alter the games genre list and must contact the administrator (in this case, a direction towards the GameBase repo's issues, for demonstrative purposes). If a user wanted an addition or change to the list, they must open an issue and the admin would have to go and impliment the change/additionif appropriate.
+  - There is a message at the bottom of the consoles list: "Current console list, please [contact the administrator](https://github.com/antonia-white/game-base/issues) for alterations or additions" - informing the user that they can not alter the games genre list and must contact the administrator (in this case, a direction towards the GameBase repo's issues, for demonstrative purposes). If a user wanted an addition or change to the list, they must open an issue and the admin would have to go and implement the change/addition if appropriate.
 
   ![Consoles](documentation/testing/consoles.png)
 
 
 ### Admin Features
 
-Only the admin has controls to edit and delete genres and consoles. For assessment purposes, the admin is the user that is able to log into GameBase with the email address "admin@admin.com". This could of course be changed if the website was to take genuine use. All admin features also have defensive programming to prevent a user brute forcing admin privelages.
+Only the admin has controls to edit and delete genres and consoles. For assessment purposes, the admin is the user that is able to log into GameBase with the email address "admin@admin.com". This could of course be changed if the website was to take genuine use. All admin features also have defensive programming to prevent a user brute forcing admin privileges.
 
 __Admin Genres View__
 
@@ -271,11 +271,11 @@ __Delete Console__
 - [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) was used as a web template engine for Python
 - [Flask](https://flask.palletsprojects.com/en/2.1.x/) python web framework used to create routes
 - [Python](https://www.python.org/downloads/) used as a dependency for Flask
-- [Psycopg2](https://www.psycopg.org/docs/) was used as a database driver to connect to the postgreSQL database
+- [Psycopg2](https://www.psycopg.org/docs/) was used as a database driver to connect to the PostgreSQL database
 - [Pip3](https://pip.pypa.io/en/stable/) was the package manager used to install the dependencies
 - [Materialize](https://materializecss.com/) was used for website layout and responsive components
 - [Google Fonts](https://fonts.google.com/) was used to provide website fonts and icons
-- [Am I Responsive](http://ami.responsivedesign.is/) was used to generate a mockup image
+- [Am I Responsive](http://ami.responsivedesign.is/) was used to generate a mock-up image
 - [Dev Tools](https://en.wikipedia.org/wiki/Web_development_tools) was used for testing and responsiveness
 - [Lucidspark](https://lucidspark.com/) was used for creating wireframes and schema diagrams
 
@@ -296,7 +296,7 @@ The steps to deploy a Heroku app are as follows:
 2.  Create a Heroku app - select 'New', from the drop-down menu select Create New App. The app name provided must be unique.
 3.  Select a region.
 4.  Create.
-5.  Navigate to the Resources tab and add a Heroku Postgres database.
+5.  Navigate to the Resources tab and add a Heroku PostgreSQL database.
 6.  Access the Settings Tab and find the Config Vars. For this project you will need the following config vars:
     *   MONGO_DBNAME = the name of your mongo database.
     *   MONGO_URI = the uri for your mongo database.
@@ -311,14 +311,14 @@ The steps to deploy a Heroku app are as follows:
 7.  Navigate to the Deploy tab.
 8.  Select Github as the deployment method.
 9.  Follow steps to link to the appropriate GitHub account.
-12. If you wish, enable Automatic Deploys for automatic deployment when you push updates to Github. Or alternativley, select the correct branch for deployment from the drop-down menu and click Deploy Branch for manual deployment.
+12. If you wish, enable Automatic Deploys for automatic deployment when you push updates to Github. Or alternatively, select the correct branch for deployment from the drop-down menu and click Deploy Branch for manual deployment.
 
 Final steps: 
 1. Create a Procfile in your repository containing `web: python run.py` so that Heroku will identify the app as a Python app.
 2. Create an untracked file called env.py in your repo and input the config vars you previously established in Heroku.
 3. Create a requirements.txt file
     - If you want to freeze your own packages into this file, run `pip3 freeze --local > requirements.txt` in the console.
-    - To instal only the packages that are already listed in the GameBase repo requirements (if making a local copy/clone) run `pip3 install -r requirements.txt` in the console.
+    - To install only the packages that are already listed in the GameBase repo requirements (if making a local copy/clone) run `pip3 install -r requirements.txt` in the console.
 
 ### Cloning
 
@@ -349,14 +349,14 @@ To fork this project go to the top left of the repository, where you see the For
 - All text throughout the website is self-written.
 - Multiple useful articles at [w3schools](https://www.w3schools.com/)
 - Various snippets of code adapted from helpful posters on [Stack Overflow](https://stackoverflow.com/)
-- The official doccumentation for [Jinja](https://jinja.palletsprojects.com/en/3.1.x/templates/)
+- The official documentation for [Jinja](https://jinja.palletsprojects.com/en/3.1.x/templates/)
 - Example combined database [repository](https://github.com/Code-Institute-Solutions/CombinedTaskManager2022) provided by Code Institute was used as a guide
 
 ### Media
 - The background image was taken from the open source site [Unsplash](https://unsplash.com/)
 - The image placeholder when a user doesn't input a link to an image or if the url provided is broken was taken from the open source site [Placeholder.com](https://placeholder.com/)
 
-### Acknowledgments
+### Acknowledgements
 
 - My Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN)
 - My friends and family for manually testing the site.
