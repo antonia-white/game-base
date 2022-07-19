@@ -24,8 +24,7 @@
         <!-- Genre -->
         <div class="row">
             <div class="input-field col s12">
-                <span id="required-genre" class="right-align">*required</span>
-                <select id="genre" name="genre" required>
+                <select class="validate" id="genre" name="genre" required>
                     <option value="" disabled selected>Choose the genre</option>
                     {% for genre in genres %}
                     <option value="{{ genre.id }}">{{ genre.genre_name }}</option>
