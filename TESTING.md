@@ -7,47 +7,47 @@
 - HTML
   - No errors were found in the `login.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input)).
 
-    >![index.html](documentation/testing/html-validation-login.png)
+    >![index.html](documentation/testing/html-validator-login.png)
 
   - No errors were found in the `register.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input)).
 
-    >![index.html](documentation/testing/html-validation-register.png)
+    >![index.html](documentation/testing/html-validator-register.png)
 
   - No errors were found in the `games.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input)).
 
-    >![index.html](documentation/testing/html-validation-games.png)
+    >![index.html](documentation/testing/html-validator-games.png)
 
   - No errors were found in the `add_game.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input)).
 
-    >![index.html](documentation/testing/html-validation-add-game.png)
+    >![index.html](documentation/testing/html-validator-add-game.png)
 
   - No errors were found in the `edit_game.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input)).
 
-    >![index.html](documentation/testing/html-validation-edit-game.png)
+    >![index.html](documentation/testing/html-validator-edit-game.png)
 
   - No errors were found in the `genres.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input)).
 
-    >![index.html](documentation/testing/html-validation-genres.png)
+    >![index.html](documentation/testing/html-validator-genres.png)
 
   - No errors were found in the `add_genre.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input)).
 
-    >![index.html](documentation/testing/html-validation-add-genre.png)
+    >![index.html](documentation/testing/html-validator-add-genre.png)
 
   - No errors were found in the `edit_genre.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input)).
 
-    >![index.html](documentation/testing/html-validation-edit-genre.png)
+    >![index.html](documentation/testing/html-validator-edit-genre.png)
 
   - No errors were found in the `consoles.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input)).
 
-    >![index.html](documentation/testing/html-validation-consoles.png)
+    >![index.html](documentation/testing/html-validator-consoles.png)
 
   - No errors were found in the `add_console.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input)).
 
-    >![index.html](documentation/testing/html-validation-add-console.png)
+    >![index.html](documentation/testing/html-validator-add-console.png)
 
   - No errors were found in the `edit_console.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input)).
 
-    >![index.html](documentation/testing/html-validation-edit-console.png)
+    >![index.html](documentation/testing/html-validator-edit-console.png)
 
 
 - CSS
@@ -171,5 +171,24 @@ A target user of the Game Base website will want to:
 ***
 
 ## Defensive Programming Testing
-- Checks url and date input are correct type
-- For admin stuff
+- Continuous checks throughout the application test if there is a current user in session. If there is no user in session, there is redirection to the login page. For example, as seen in the get games route:
+  ```
+  if "user" not in session:
+        flash("Please login")
+        return redirect(url_for("login"))
+  ```
+- There is defensive programming in place so that a user can only edit and delete games that belong to them. This was acheived by setting the session user to equal the individual's id from the user table in the gamebase database. If the session user matches the id of the person who created the game, then edit and delete actions are allowed. If the session user does not match the id, the user will be alerted and redirected to login. For example, as seen in the edit game route:
+  ```
+  if session["user"] != Game.query.get_or_404(game_id).user_id:
+        flash(
+            "This is not your game! \
+            You can only edit your own games. Please log in.")
+        return redirect(url_for("login"))
+  ```
+- There is defensive programming to ensure only an admin can create, edit or delete records of genres and consoles. This is acheived by querying if the session user (i.e., the user id of the user currenty logged in) is equal to the user id of the account that has the email address "admin@admin.com". If these do match up then admin priveleges are allowedm otherwise the user will be alerted and redirected. For example, as seen in the edit console route:
+  ```
+  if session["user"] != User.query.filter(
+                User.email == "admin@admin.com").first().id:
+        flash("You must be admin to add a console.")
+        return redirect(url_for("get_consoles"))
+  ```
