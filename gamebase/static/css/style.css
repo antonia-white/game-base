@@ -1,164 +1,182 @@
 /* Google icons */
 .material-symbols-outlined {
-    font-variation-settings:
-        'FILL'0,
-        'wght'400,
-        'GRAD'0,
-        'opsz'48
+  font-variation-settings:
+      'FILL'0,
+      'wght'400,
+      'GRAD'0,
+      'opsz'48
 }
 
 /* Center icons */
 .material-symbols-outlined{
-    vertical-align: middle;
-    padding-right: 0.25em;
+  vertical-align: middle;
+  padding-right: 0.25em;
 }
 
 .card{
-    position: relative;
-    width: 380px;
-    float: left;
-    margin-right: 2vw;
-    margin-bottom: 2vh;
-    background-color: #e0f2f1;
+  position: relative;
+  width: 380px;
+  float: left;
+  margin-right: 2vw;
+  margin-bottom: 2vh;
+  background-color: #e0f2f1;
 }
 
 html{
-  font-family: 'Albert Sans', sans-serif;
+font-family: 'Albert Sans', sans-serif;
 }
 
 /* Make footer sticky */
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
 
-  main {
-    flex: 1 0 auto;
-  }
+main {
+  flex: 1 0 auto;
+}
 
-  /* Genre list */
-  .genre-list {
-    float:left;
-    position:static;
-    width: 100%;
-  }
+/* Genre list */
+.genre-list {
+  float:left;
+  position:static;
+  width: 100%;
+}
 
-  .hide {
-    display: none;
-  }
+.hide {
+  display: none;
+}
 
-  body {
-    background: url(../media/background-img.avif) center fixed;
-    background-color: #080f27;
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: #e0f2f1;
-  }
+body {
+  background: url(../media/background-img.avif) center fixed;
+  background-color: #080f27;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #e0f2f1;
+}
 
-  .card-panel{
-    background-color: #061a27;
-  }
+.card-panel{
+  background-color: #061a27;
+}
 
-  .dark-blue{
-    background-color: #092a3e;
-  }
+.dark-blue{
+  background-color: #092a3e;
+}
 
-  .brand-logo{
-    font-family: 'Archivo Narrow', sans-serif;
-  }
+.brand-logo{
+  font-family: 'Archivo Narrow', sans-serif;
+}
 
-  #logo{
-    width:auto;
-    height:60px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
+#logo{
+  width:auto;
+  height:60px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
 #logo-text {
-  display: inline-block;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  position: absolute;
-  width:300px;
+display: inline-block;
+margin-top: 0px;
+margin-bottom: 0px;
+position: absolute;
+width:300px;
 }
 
 /* Dropdown */
 .select-dropdown{
-  color: #e0f2f1;
+color: #e0f2f1;
 }
 
 /* Fix colouring of dates in datepicker */
 .datepicker-day-button {
-  color: #080f27;
-  }
+color: #080f27;
+}
 
+/* 404 game over image */
+#game-over{
+  max-height: 200px;
+  max-width: 400px;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 
 /* Fix colouring of year dropdown in datepicker */
 .select-year > .select-dropdown{
-  color:#080f27;
+color:#080f27;
 }
 
 /* Fix colouring of month dropdown in datepicker */
 .select-month > .select-dropdown{
-  color:#080f27;
+color:#080f27;
+}
+
+#required-genre{
+float: right;
+color:#9e9e9e;
+display: inline-block;
+font-size: x-small;
+margin-bottom: -15px;
 }
 
 /* Admin buttons */
 .admin-btn{
-  color:#9e9e9e;
+color:#9e9e9e;
 }
 
 .admin-btn:hover{
-  color:#e0f2f1;
+color:#e0f2f1;
 }
 
 /* Media queries */
 @media only screen and (min-width: 993px) {
-  .container {
-   width:80%;
-  }
- }
+.container {
+ width:80%;
+}
+}
 
 
- /* Adjust logo on small screens */
- @media screen and (max-width: 601px) {
-  #logo{
-    height: 52px;
-  }
- }
+/* Adjust logo on small screens */
+@media screen and (max-width: 601px) {
+#logo{
+  height: 52px;
+}
+}
 
- @media screen and (max-width: 938px){
-  .card{
-    margin-left: 20vw;
-  }
-  #add-game-btn{
-    float:right;
-    position: sticky;
-    display: block;
-    margin-top: -60px;
-    margin-left: 60%;
-    z-index: 10;
-  }
- }
+@media screen and (max-width: 938px){
+.card{
+  margin-left: 20vw;
+}
+#add-game-btn{
+  float:right;
+  position: sticky;
+  display: block;
+  margin-top: -60px;
+  margin-left: 60%;
+  z-index: 10;
+}
+}
 
- @media screen and (max-width: 560px){
-  .card{
-    margin-left: 2vw;
-  }
+@media screen and (max-width: 560px){
+.card{
+  margin-left: 2vw;
+}
 }
 
 /* Small screens */
 @media screen and (max-width: 560px){
-  .container{
-    width: 97%;
-  }
-  #add-game-btn{
-    width: 80px;
-    margin-right: 10px;
-    overflow: hidden;
-  }
-  .card{
-    width: 95%;
-  }
+.container{
+  width: 97%;
+}
+#add-game-btn{
+  width: 80px;
+  margin-right: 10px;
+  overflow: hidden;
+}
+.card{
+  width: 95%;
+}
 }
