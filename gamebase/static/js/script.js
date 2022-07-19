@@ -37,10 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-function requiredGenre() {
-    document.getElementById('required-genre').style.cssText = 'color: #F44336;';
-}
-
 // Stop keyboard input on date field
 function preventKeyboardInput(event) {
     event.preventDefault();
