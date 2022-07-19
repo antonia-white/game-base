@@ -343,3 +343,8 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+# 404 error handling
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template("404.html")
