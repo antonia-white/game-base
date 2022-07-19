@@ -47,6 +47,10 @@
 
     >![index.html](documentation/testing/html-validator-edit-console.png)
 
+  - No errors were found in the `404.html` file when passed through the official [W3C's HTML Validator](https://validator.w3.org/#validate_by_input).
+
+    >![index.html](documentation/testing/html-validator-404.png)
+
 
 - CSS
   - No errors were found in the `style.css` file when passed through the official [Jigsaw validator](https://jigsaw.w3.org/css-validator/#validate_by_input) CSS validator.
