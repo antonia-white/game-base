@@ -70,12 +70,13 @@
 
   - No errors were returned and all code met PEP8 compliance when `models.py` file was passed through the official [pep8online](http://pep8online.com/) Python validator.
 
-    >![__init__.py](documentation/testing/pep8online-py-models.py-validator-screenshot.png)
+    >![models_.py](documentation/testing/pep8online-py-models.py-validator-screenshot.png)
 
 
   - No errors were returned and all code met PEP8 compliance when `routes.py` file was passed through the official [pep8online](http://pep8online.com/) Python validator.
 
-    >![__init__.py](documentation/testing/pep8online-py-routes.py-validator-screenshot.png)
+    >![routes.py](documentation/testing/pep8online-py-routes.py-validator-screenshot.png)
+
 
   - No errors were returned and all code met PEP8 compliance when `run.py` file was passed through the official [pep8online](http://pep8online.com/) Python validator.
 
